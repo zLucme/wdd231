@@ -46,7 +46,8 @@ header {
 
 #menu-navegacao {
   display: none;
-  background-color: #3f3f3f;
+  background-color: #1c1c1c;
+  color: #ffffff;
   flex-direction: column;
 }
 
@@ -59,13 +60,13 @@ header {
   text-decoration: none;
   padding: 0.85rem 1rem;
   font-weight: 700;
-  border-bottom: 1px solid #555555;
+  border-bottom: 1px solid #333333;
   transition: background-color 0.2s;
 }
 
 #menu-navegacao a:hover,
 #menu-navegacao a.ativo {
-  background-color: #2b2b2b;
+  background-color: #333333;
 }
 
 main {
@@ -92,7 +93,7 @@ h1 {
 }
 
 .cabecalho-faixa {
-  background-color: #333333;
+  background-color: #1c1c1c;
   color: #ffffff;
   font-size: 1.1rem;
   text-align: center;
@@ -139,7 +140,7 @@ h1 {
 
 .btn-filtro:hover,
 .btn-filtro.ativo {
-  background-color: #333333;
+  background-color: #1c1c1c;
   color: #ffffff;
 }
 
