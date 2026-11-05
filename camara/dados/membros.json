@@ -1,0 +1,79 @@
+[
+  {
+    "nome": "Tech Inovações Monte Mor",
+    "slogan": "Soluções digitais e inteligência estratégica",
+    "ramo": "Tecnologia da Informação",
+    "endereco": "Rua Central, 120",
+    "telefone": "(19) 3879-1001",
+    "email": "contato@techinova.com.br",
+    "site": "https://techinovacoes.exemplo.com",
+    "imagem": "tech.jpg",
+    "nivel": 3
+  },
+  {
+    "nome": "Padaria Central",
+    "slogan": "Tradição em pães artesanais e confeitaria",
+    "ramo": "Panificação e Confeitaria",
+    "endereco": "Av. Brasil, 455",
+    "telefone": "(19) 3879-2002",
+    "email": "contato@padariacentral.com.br",
+    "site": "https://padariacentral.exemplo.com",
+    "imagem": "padaria.jpg",
+    "nivel": 2
+  },
+  {
+    "nome": "Oficina Mecânica Express",
+    "slogan": "Manutenção preventiva com agilidade",
+    "ramo": "Serviços Automotivos",
+    "endereco": "Rua das Flores, 88",
+    "telefone": "(19) 3879-3003",
+    "email": "express@mecanica.com.br",
+    "site": "https://mecanicaexpress.exemplo.com",
+    "imagem": "mecanica.jpg",
+    "nivel": 1
+  },
+  {
+    "nome": "Livraria do Saber",
+    "slogan": "Conhecimento e cultura para todos",
+    "ramo": "Educação e Papelaria",
+    "endereco": "Praça Matriz, 12",
+    "telefone": "(19) 3879-4004",
+    "email": "leitura@livrariasaber.com.br",
+    "site": "https://livrariasaber.exemplo.com",
+    "imagem": "livraria.jpg",
+    "nivel": 2
+  },
+  {
+    "nome": "Construtora Horizonte",
+    "slogan": "Construindo o futuro com segurança",
+    "ramo": "Engenharia e Construção",
+    "endereco": "Av. dos Trabalhadores, 900",
+    "telefone": "(19) 3879-5005",
+    "email": "projetos@horizonteeng.com.br",
+    "site": "https://construtorahorizonte.exemplo.com",
+    "imagem": "construtora.jpg",
+    "nivel": 3
+  },
+  {
+    "nome": "Moda Urbana Boutique",
+    "slogan": "Elegância e conforto para o seu dia",
+    "ramo": "Vestuário e Calçados",
+    "endereco": "Rua do Comércio, 310",
+    "telefone": "(19) 3879-6006",
+    "email": "vendas@modaurbana.com.br",
+    "site": "https://modaurbana.exemplo.com",
+    "imagem": "moda.jpg",
+    "nivel": 1
+  },
+  {
+    "nome": "Clínica Saúde Total",
+    "slogan": "Cuidado completo para a sua família",
+    "ramo": "Saúde e Bem-estar",
+    "endereco": "Av. Primavera, 75",
+    "telefone": "(19) 3879-7007",
+    "email": "agendamento@saudetotal.com.br",
+    "site": "https://clinicasaudetotal.exemplo.com",
+    "imagem": "saude.jpg",
+    "nivel": 3
+  }
+]

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diretório de Membros | Câmara de Comércio de Monte Mor</title>
+  <meta name="description" content="Diretório oficial de empresas associadas à Câmara de Comércio de Monte Mor.">
+  <meta name="author" content="Lucas Mendes de Araújo">
+
+  <link rel="icon" href="imagens/favicon.ico" type="image/x-icon">
+
+  <meta property="og:title" content="Diretório de Membros | Câmara de Comércio de Monte Mor">
+  <meta property="og:description" content="Conheça as empresas locais associadas à Câmara de Comércio de Monte Mor.">
+  <meta property="og:image" content="imagens/camara.jpg">
+  <meta property="og:url" content="https://seusite.github.io/camara/diretorio.html">
+
+  <link rel="stylesheet" href="estilos/normalize.css">
+  <link rel="stylesheet" href="estilos/telas-pequenas.css">
+  <link rel="stylesheet" href="estilos/telas-grandes.css">
+  <link rel="icon" href="imagens/camara.ico">
+  
+  <script src="script/diretorio.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="marca">
+        <img src="imagens/camara.jpg" alt="Logotipo da Câmara de Comércio de Monte Mor" class="logo-camara" width="50" height="50">
+        <div class="marca-texto">
+          <span class="nome-camara">Monte Mor</span>
+          <span class="subtitulo-camara">Câmara de Comércio</span>
+        </div>
+      </div>
+
+      <div class="controles-cabecalho">
+        <button id="modo-escuro" aria-label="Alternar tema claro e escuro">&#9790;</button>
+        <button id="btn-hamburguer" aria-label="Abrir menu de navegação">&#9776;</button>
+      </div>
+
+      <nav id="menu-navegacao" aria-label="Navegação principal">
+        <ul id="lista-menu">
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="diretorio.html" class="active" aria-current="page">Diretório</a></li>
+          <li><a href="associacao.html">Associe-se</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="eventos.html">Eventos</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2>Diretório de Membros</h2>
+    
+    <div class="visualizacao-botoes">
+      <button id="btn-grade" class="ativo" aria-label="Visualização em Grade">Grade</button>
+      <button id="btn-lista" aria-label="Visualização em Lista">Lista</button>
+    </div>
+
+    <div id="membros-container" class="grid"></div>
+  </main>
+
+  <footer>
+    <div class="footer-bloco footer-contato">
+      <h3>Câmara de Comércio de Monte Mor</h3>
+      <p>Rua Salomão Haddad Baruque, 100</p>
+      <p>Monte Mor, SP - CEP 13190-000</p>
+      <p>contato@camaramontemor.org.br</p>
+      <p>(19) 3879-1000</p>
+    </div>
+
+    <div class="footer-bloco footer-redes">
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Acessar nosso canal no YouTube">
+        <svg viewBox="0 0 24 24" class="icone-rede" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Acessar nosso perfil no X">
+        <svg viewBox="0 0 24 24" class="icone-rede" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Acessar nosso perfil no LinkedIn">
+        <svg viewBox="0 0 24 24" class="icone-rede" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c-.95 0-1.72-.77-1.72-1.72s.77-1.72 1.72-1.72 1.72.77 1.72 1.72-.77 1.72-1.72 1.72m1.4 9.74v-8.37H5.06v8.37z"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bloco footer-desenvolvimento">
+      <p>Projeto de Aula WDD 231</p>
+      <p>Lucas Mendes de Araújo &copy;</p>
+      <p><span id="ano-copyright"></span> Monte Mor Câmara de Comércio</p>
+      <p>Última Modificação: <span id="ultima-modificacao"></span></p>
+    </div>
+  </footer>
+</body>
+</html>
