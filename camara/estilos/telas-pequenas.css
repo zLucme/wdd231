@@ -30,8 +30,10 @@ body.dark-mode .cartao-membro {
 
 body.dark-mode .cartao-cabecalho {
   background-color: #2f2f2f;
+  border-bottom-color: #383838;
 }
 
+body.dark-mode .cartao-cabecalho h2,
 body.dark-mode .cartao-cabecalho h3 {
   color: #ffffff;
 }
@@ -98,7 +100,7 @@ header {
 
 #modo-escuro,
 #btn-hamburguer {
-  background: transparent;
+  background-color: #00000000;
   border: 1px solid #64748b;
   border-radius: 4px;
   padding: 0.3rem 0.6rem;
@@ -191,7 +193,7 @@ body.dark-mode main h1 {
 body.dark-mode .visualizacao-botoes button {
   background-color: #262626;
   color: #f1f1f1;
-  border: 1px solid #525252;
+  border-color: #525252;
 }
 
 body.dark-mode .visualizacao-botoes button.ativo {
@@ -211,7 +213,7 @@ body.dark-mode .visualizacao-botoes button.ativo {
   border: 1px solid #cbd5e1;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 4px #00000014;
   display: flex;
   flex-direction: column;
 }
@@ -223,7 +225,7 @@ body.dark-mode .visualizacao-botoes button.ativo {
   border-bottom: 1px solid #cbd5e1;
 }
 
-.cartao-cabecalho h3 {
+.cartao-cabecalho h2 {
   font-size: 1.15rem;
   color: #0f172a;
 }
@@ -306,7 +308,7 @@ body.dark-mode .nivel-1 {
 }
 
 #membros-container.list .cartao-membro .cartao-cabecalho {
-  background: transparent;
+  background-color: #00000000;
   border: none;
   padding: 0;
   text-align: left;
@@ -336,7 +338,7 @@ footer {
   font-size: 0.9rem;
 }
 
-.footer-bloco h3 {
+.footer-bloco h2 {
   font-size: 1.05rem;
   margin-bottom: 0.4rem;
   color: #ffffff;

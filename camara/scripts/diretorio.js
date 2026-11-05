@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const cabecalhoCard = document.createElement("div");
       cabecalhoCard.className = "cartao-cabecalho";
 
-      const titulo = document.createElement("h3");
+      const titulo = document.createElement("h2");
       titulo.textContent = membro.nome;
 
       const slogan = document.createElement("p");
