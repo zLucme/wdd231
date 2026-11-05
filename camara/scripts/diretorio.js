@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
       imagem.src = `imagens/${membro.imagem}`;
       imagem.alt = `Logótipo de ${membro.nome}`;
       imagem.loading = "lazy";
-      imagem.width = 120;
-      imagem.height = 120;
+      imagem.width = 90;
+      imagem.height = 90;
 
       const dados = document.createElement("div");
       dados.className = "cartao-dados";

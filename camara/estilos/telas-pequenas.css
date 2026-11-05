@@ -33,8 +33,7 @@ body.dark-mode .cartao-cabecalho {
   border-bottom-color: #383838;
 }
 
-body.dark-mode .cartao-cabecalho h2,
-body.dark-mode .cartao-cabecalho h3 {
+body.dark-mode .cartao-cabecalho h2 {
   color: #ffffff;
 }
 
@@ -74,6 +73,9 @@ header {
 .logo-camara {
   border-radius: 4px;
   object-fit: contain;
+  width: 50px;
+  height: 50px;
+  aspect-ratio: 1 / 1;
 }
 
 .marca-texto {
@@ -202,6 +204,10 @@ body.dark-mode .visualizacao-botoes button.ativo {
   border: 1px solid #1d4ed8;
 }
 
+#membros-container {
+  min-height: 400px;
+}
+
 #membros-container.grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -216,6 +222,7 @@ body.dark-mode .visualizacao-botoes button.ativo {
   box-shadow: 0 2px 4px #00000014;
   display: flex;
   flex-direction: column;
+  min-height: 230px;
 }
 
 .cartao-cabecalho {
@@ -223,6 +230,7 @@ body.dark-mode .visualizacao-botoes button.ativo {
   padding: 0.8rem;
   text-align: center;
   border-bottom: 1px solid #cbd5e1;
+  min-height: 68px;
 }
 
 .cartao-cabecalho h2 {
@@ -245,10 +253,12 @@ body.dark-mode .visualizacao-botoes button.ativo {
 .cartao-corpo img {
   width: 90px;
   height: 90px;
+  aspect-ratio: 1 / 1;
   object-fit: contain;
   background-color: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .cartao-dados {
@@ -305,6 +315,7 @@ body.dark-mode .nivel-1 {
   border: 1px solid #cbd5e1;
   border-radius: 6px;
   padding: 0.8rem 1rem;
+  min-height: auto;
 }
 
 #membros-container.list .cartao-membro .cartao-cabecalho {
@@ -312,6 +323,7 @@ body.dark-mode .nivel-1 {
   border: none;
   padding: 0;
   text-align: left;
+  min-height: auto;
 }
 
 #membros-container.list .cartao-membro img {
