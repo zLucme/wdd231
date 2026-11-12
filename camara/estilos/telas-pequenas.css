@@ -23,6 +23,23 @@ body.dark-mode footer {
   border-color: #333333;
 }
 
+body.dark-mode header {
+  color: #f1f1f1;
+}
+
+body.dark-mode .nome-camara {
+  color: #ffffff;
+}
+
+body.dark-mode .subtitulo-camara {
+  color: #cbd5e1;
+}
+
+body.dark-mode #modo-escuro,
+body.dark-mode #btn-hamburguer {
+  border-color: #94a3b8;
+}
+
 body.dark-mode #membros-container .cartao-membro {
   background-color: #242424;
   border-color: #383838;
