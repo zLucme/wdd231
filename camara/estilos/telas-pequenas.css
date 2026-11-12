@@ -208,7 +208,7 @@ main h1 {
 .visualizacao-botoes button.ativo {
   background-color: var(--botao-ativo);
   color: #ffffff;
-  border-color: transparent;
+  border-color: #00000000;
   position: relative;
 }
 
