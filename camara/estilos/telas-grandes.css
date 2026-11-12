@@ -1,4 +1,26 @@
 @media screen and (min-width: 768px) {
+  #btn-hamburguer {
+    display: none;
+  }
+
+  #menu-navegacao {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 0.6rem;
+  }
+
+  #lista-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  #lista-menu li a {
+    border-bottom: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.8rem;
+  }
+
   #membros-container.grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
@@ -33,36 +55,15 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .header-container {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  #btn-hamburguer {
-    display: none;
+  #menu-navegacao {
+    order: 2;
+    width: auto;
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;
   }
 
   .controles-cabecalho {
     order: 3;
-  }
-
-  #menu-navegacao {
-    order: 2;
-    width: auto;
-  }
-
-  #lista-menu {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-
-  #lista-menu li a {
-    border-bottom: none;
-    border-radius: 4px;
-    padding: 0.5rem 0.8rem;
   }
 }
