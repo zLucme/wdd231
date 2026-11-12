@@ -107,7 +107,7 @@ header {
 
 #modo-escuro,
 #btn-hamburguer {
-  background-color: transparent;
+  background-color: #00000000;
   border: 1px solid #8fa3c4;
   border-radius: 6px;
   padding: 0.3rem 0.6rem;
@@ -118,7 +118,7 @@ header {
 
 #modo-escuro:hover,
 #btn-hamburguer:hover {
-  background-color: rgba(255, 255, 255, 0.14);
+  background-color: #ffffff24;
 }
 
 #menu-navegacao {
@@ -144,11 +144,11 @@ header {
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid #ffffff26;
 }
 
 #lista-menu li a:hover {
-  background-color: rgba(255, 255, 255, 0.14);
+  background-color: #ffffff24;
 }
 
 #lista-menu li a.active {
@@ -231,7 +231,7 @@ main h1 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 3px rgba(20, 40, 75, 0.08);
+  box-shadow: 0 1px 3px #14284b14;
 }
 
 .cartao-membro:has(.nivel-3) {
