@@ -1,37 +1,4 @@
 @media screen and (min-width: 768px) {
-  .header-container {
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  #btn-hamburguer {
-    display: none;
-  }
-
-  .controles-cabecalho {
-    order: 3;
-  }
-
-  #menu-navegacao {
-    order: 2;
-    width: auto;
-  }
-
-  #lista-menu {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-
-  #lista-menu li a {
-    border-bottom: none;
-    border-radius: 4px;
-    padding: 0.5rem 0.8rem;
-  }
-
   #membros-container.grid {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
@@ -65,5 +32,40 @@
 
   .footer-desenvolvimento {
     text-align: right;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  #btn-hamburguer {
+    display: none;
+  }
+
+  .controles-cabecalho {
+    order: 3;
+  }
+
+  #menu-navegacao {
+    order: 2;
+    width: auto;
+  }
+
+  #lista-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  #lista-menu li a {
+    border-bottom: none;
+    border-radius: 4px;
+    padding: 0.5rem 0.8rem;
   }
 }
