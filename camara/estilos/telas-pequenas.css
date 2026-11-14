@@ -138,7 +138,9 @@ header {
   display: flex;
 }
 
-#lista-menu li a {
+#lista-menu li a,
+#lista-menu li span,
+#lista-menu li a[aria-disabled="true"] {
   display: block;
   padding: 0.7rem;
   color: #ffffff;
@@ -147,7 +149,8 @@ header {
   border-bottom: 1px solid #ffffff26;
 }
 
-#lista-menu li a:hover {
+#lista-menu li a:hover,
+#lista-menu li a[aria-disabled="true"]:hover {
   background-color: #ffffff24;
 }
 
@@ -212,6 +215,94 @@ main h1 {
   position: relative;
 }
 
+.heroi-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(14, 28, 54, 0.15);
+}
+
+.imagem-heroi {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.heroi-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(to top, rgba(14, 40, 75, 0.8), transparent);
+  pointer-events: none;
+}
+
+.botao-cta {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 2;
+  background-color: var(--ouro);
+  color: #14284b;
+  font-weight: 700;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.botao-cta:hover {
+  background-color: #eab308;
+  transform: translateY(-2px);
+}
+
+.conteudo-principal-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.painel-secao {
+  background-color: var(--superficie);
+  border: 1px solid var(--borda);
+  border-top: 4px solid var(--ouro);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease;
+}
+
+.painel-secao:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.painel-secao h2 {
+  font-size: 1.25rem;
+  color: var(--titulo);
+  margin-bottom: 0.75rem;
+}
+
+.eventos-recentes ul,
+.clima-previsao ul {
+  list-style-type: disc;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.clima-atual {
+  margin-bottom: 0.75rem;
+}
+
 #membros-container {
   min-height: 400px;
 }
@@ -227,11 +318,17 @@ main h1 {
   background-color: var(--superficie);
   border: 1px solid var(--borda);
   border-top: 5px solid var(--nivel-cor);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 3px #14284b14;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cartao-membro:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .cartao-membro:has(.nivel-3) {
@@ -394,27 +491,4 @@ footer {
   flex-direction: column;
   gap: 0.2rem;
   color: #d6deec;
-}
-
-@media screen and (max-width: 359px) {
-  header {
-    padding: 0.8rem 0.75rem;
-  }
-
-  .marca {
-    gap: 0.5rem;
-  }
-
-  .logo-camara {
-    width: 40px;
-    height: 40px;
-  }
-
-  .nome-camara {
-    font-size: 1.1rem;
-  }
-
-  .subtitulo-camara {
-    font-size: 0.75rem;
-  }
 }

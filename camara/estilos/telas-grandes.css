@@ -15,10 +15,21 @@
     gap: 0.5rem;
   }
 
-  #lista-menu li a {
+  #lista-menu li a,
+  #lista-menu li a[aria-disabled="true"] {
     border-bottom: none;
     border-radius: 6px;
     padding: 0.5rem 0.8rem;
+  }
+
+  .imagem-heroi {
+    height: 420px;
+  }
+
+  .conteudo-principal-grid {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
   }
 
   #membros-container.grid {
