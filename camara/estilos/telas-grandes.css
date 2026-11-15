@@ -4,19 +4,17 @@
   }
 
   #menu-navegacao {
-    border-top: 1px solid #ffffff26;
+    border-top: 1px solid var(--sombra-media);
     padding-top: 0.6rem;
   }
 
   #lista-menu {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     gap: 0.5rem;
   }
 
-  #lista-menu li a,
-  #lista-menu li a[aria-disabled="true"] {
+  #lista-menu li a {
     border-bottom: none;
     border-radius: 6px;
     padding: 0.5rem 0.8rem;
@@ -28,8 +26,6 @@
 
   .conteudo-principal-grid {
     grid-template-columns: 1.5fr 1fr;
-    gap: 1.5rem;
-    align-items: stretch;
   }
 
   #membros-container.grid {
@@ -41,7 +37,6 @@
     grid-template-columns: 280px 1fr;
     column-gap: 1.5rem;
     align-items: center;
-    padding: 0.9rem 1.4rem;
   }
 
   #membros-container.list .cartao-corpo {
@@ -55,7 +50,6 @@
   footer {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
     text-align: left;
     padding: 2rem max(2rem, calc((100% - 1200px) / 2));
   }

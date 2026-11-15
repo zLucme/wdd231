@@ -3,6 +3,7 @@
   --azul-link: #0b4fa8;
   --botao-ativo: #14284b;
   --ouro: #c8962b;
+  --ouro-hover: #eab308;
   --prata: #8795a6;
   --bronze: #b5602a;
   --foco: #9a6b00;
@@ -14,17 +15,15 @@
   --titulo: #14284b;
   --cabecalho-bg: #14284b;
   --rodape-bg: #0f1d38;
-
   --branco: #ffffff;
-  --transparente: transparent;
+  --transparente: #00000000;
   --borda-clara: #8fa3c4;
   --borda-botao: #8a97ab;
-  
-  --sombra-leve: rgba(0, 0, 0, 0.04);
-  --sombra-media: rgba(0, 0, 0, 0.08);
-  --sombra-forte: rgba(0, 0, 0, 0.3);
-  --sombra-heroi: rgba(14, 28, 54, 0.15);
-  
+  --sombra-leve: #0000000a;
+  --sombra-media: #00000014;
+  --sombra-forte: #0000004d;
+  --sombra-heroi: #0e1c3626;
+  --gradiente-heroi: #0e284bcc;
   --nivel-3-bg: #f6dc9a;
   --nivel-3-txt: #3d2b00;
   --nivel-2-bg: #dde3ea;
@@ -54,10 +53,9 @@ body.dark-mode {
 }
 
 body {
-  font-family: "Roboto", Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  font: 1rem/1.6 "Roboto", Arial, sans-serif;
   color: var(--texto);
-  background-color: var(--fundo);
+  background: var(--fundo);
   min-width: 320px;
 }
 
@@ -67,7 +65,7 @@ body {
 }
 
 header {
-  background-color: var(--cabecalho-bg);
+  background: var(--cabecalho-bg);
   color: var(--branco);
   border-bottom: 4px solid var(--ouro);
   padding: 0.8rem 1rem;
@@ -94,8 +92,7 @@ header {
   object-fit: contain;
   width: 50px;
   height: 50px;
-  aspect-ratio: 1 / 1;
-  background-color: var(--branco);
+  background: var(--branco);
   padding: 2px;
 }
 
@@ -108,12 +105,10 @@ header {
 .nome-camara {
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--branco);
 }
 
 .subtitulo-camara {
   font-size: 0.85rem;
-  font-weight: 600;
   color: var(--borda);
 }
 
@@ -124,7 +119,7 @@ header {
 
 #modo-escuro,
 #btn-hamburguer {
-  background-color: var(--transparente);
+  background: var(--transparente);
   border: 1px solid var(--borda-clara);
   border-radius: 6px;
   padding: 0.3rem 0.6rem;
@@ -134,8 +129,9 @@ header {
 }
 
 #modo-escuro:hover,
-#btn-hamburguer:hover {
-  background-color: var(--sombra-media);
+#btn-hamburguer:hover,
+#lista-menu li a:hover {
+  background: var(--sombra-media);
 }
 
 #menu-navegacao {
@@ -147,7 +143,6 @@ header {
   list-style: none;
   display: none;
   flex-direction: column;
-  width: 100%;
   text-align: center;
 }
 
@@ -155,9 +150,7 @@ header {
   display: flex;
 }
 
-#lista-menu li a,
-#lista-menu li span,
-#lista-menu li a[aria-disabled="true"] {
+#lista-menu li a {
   display: block;
   padding: 0.7rem;
   color: var(--branco);
@@ -166,13 +159,8 @@ header {
   border-bottom: 1px solid var(--sombra-media);
 }
 
-#lista-menu li a:hover,
-#lista-menu li a[aria-disabled="true"]:hover {
-  background-color: var(--sombra-media);
-}
-
 #lista-menu li a.active {
-  background-color: var(--ouro);
+  background: var(--ouro);
   color: var(--azul-escuro);
 }
 
@@ -191,14 +179,12 @@ main h1 {
   color: var(--titulo);
   font-size: clamp(1.9rem, 5vw, 2.6rem);
   line-height: 1.15;
-  letter-spacing: -0.01em;
   margin-bottom: 0.6rem;
 }
 
 .intro {
   max-width: 60ch;
   color: var(--texto-suave);
-  font-size: 1.05rem;
   margin-bottom: 1.5rem;
 }
 
@@ -209,7 +195,7 @@ main h1 {
 
 .visualizacao-botoes button {
   padding: 0.5rem 1.4rem;
-  background-color: var(--superficie);
+  background: var(--superficie);
   color: var(--titulo);
   border: 1px solid var(--borda-botao);
   cursor: pointer;
@@ -226,17 +212,14 @@ main h1 {
 }
 
 .visualizacao-botoes button.ativo {
-  background-color: var(--botao-ativo);
+  background: var(--botao-ativo);
   color: var(--branco);
   border-color: var(--transparente);
-  position: relative;
 }
 
 .heroi-container {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto 2rem auto;
+  margin-bottom: 2rem;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 8px 24px var(--sombra-heroi);
@@ -252,53 +235,44 @@ main h1 {
 .heroi-container::after {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  inset: auto 0 0 0;
   height: 110px;
-  background: linear-gradient(to top, rgba(14, 40, 75, 0.8), transparent);
+  background: linear-gradient(to top, var(--gradiente-heroi), var(--transparente));
   pointer-events: none;
 }
 
 .botao-cta {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  inset: auto 20px 20px auto;
   z-index: 2;
-  background-color: var(--ouro);
+  background: var(--ouro);
   color: var(--azul-escuro);
   font-weight: 700;
   padding: 0.85rem 1.5rem;
   text-decoration: none;
   border-radius: 6px;
   box-shadow: 0 4px 12px var(--sombra-forte);
-  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .botao-cta:hover {
-  background-color: #eab308;
-  transform: translateY(-2px);
+  background: var(--ouro-hover);
 }
 
-.conteudo-principal-grid {
+.conteudo-principal-grid,
+#membros-container.grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
 .painel-secao {
-  background-color: var(--superficie);
+  background: var(--superficie);
   border: 1px solid var(--borda);
   border-top: 4px solid var(--ouro);
   border-radius: 10px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 12px var(--sombra-leve);
-  transition: box-shadow 0.3s ease;
-}
-
-.painel-secao:hover {
-  box-shadow: 0 6px 16px var(--sombra-media);
 }
 
 .painel-secao h2 {
@@ -309,7 +283,6 @@ main h1 {
 
 .eventos-recentes ul,
 .clima-previsao ul {
-  list-style-type: disc;
   padding-left: 1.2rem;
   display: flex;
   flex-direction: column;
@@ -324,28 +297,15 @@ main h1 {
   min-height: 400px;
 }
 
-#membros-container.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
-
 .cartao-membro {
   --nivel-cor: var(--bronze);
-  background-color: var(--superficie);
+  background: var(--superficie);
   border: 1px solid var(--borda);
   border-top: 5px solid var(--nivel-cor);
   border-radius: 10px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 12px var(--sombra-leve);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cartao-membro:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px var(--sombra-media);
 }
 
 .cartao-membro:has(.nivel-3) {
@@ -356,19 +316,13 @@ main h1 {
   --nivel-cor: var(--prata);
 }
 
-#membros-container.grid .cartao-membro {
-  min-height: 230px;
-}
-
 .cartao-cabecalho {
   padding: 1rem 1rem 0;
-  text-align: left;
   min-height: 72px;
 }
 
 .cartao-cabecalho h2 {
   font-size: 1.15rem;
-  line-height: 1.3;
   color: var(--titulo);
 }
 
@@ -387,12 +341,10 @@ main h1 {
 .cartao-corpo img {
   width: 90px;
   height: 90px;
-  aspect-ratio: 1 / 1;
   object-fit: contain;
-  background-color: var(--branco);
+  background: var(--branco);
   border: 1px solid var(--borda);
   border-radius: 6px;
-  flex-shrink: 0;
 }
 
 .cartao-dados {
@@ -405,12 +357,10 @@ main h1 {
 
 .cartao-dados p strong {
   color: var(--texto-suave);
-  font-weight: 600;
 }
 
 .cartao-dados a {
   color: var(--azul-link);
-  text-decoration: underline;
   font-weight: 600;
 }
 
@@ -418,23 +368,23 @@ main h1 {
   align-self: flex-start;
   margin-top: 0.4rem;
   padding: 0.1rem 0.7rem;
-  border-radius: 999px;
+  border-radius: 99px;
   font-size: 0.8rem;
   font-weight: 700;
 }
 
 .nivel-3 {
-  background-color: var(--nivel-3-bg);
+  background: var(--nivel-3-bg);
   color: var(--nivel-3-txt);
 }
 
 .nivel-2 {
-  background-color: var(--nivel-2-bg);
+  background: var(--nivel-2-bg);
   color: var(--nivel-2-txt);
 }
 
 .nivel-1 {
-  background-color: var(--nivel-1-bg);
+  background: var(--nivel-1-bg);
   color: var(--nivel-1-txt);
 }
 
@@ -447,7 +397,6 @@ main h1 {
 #membros-container.list .cartao-membro {
   border-top: 1px solid var(--borda);
   border-left: 5px solid var(--nivel-cor);
-  border-radius: 6px;
   padding: 0.9rem 1rem;
 }
 
@@ -461,14 +410,14 @@ main h1 {
 }
 
 #membros-container.list .cartao-corpo {
-  padding: 0.4rem 0 0 0;
+  padding: 0.4rem 0 0;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.2rem;
 }
 
 footer {
-  background-color: var(--rodape-bg);
+  background: var(--rodape-bg);
   color: var(--fundo);
   border-top: 4px solid var(--ouro);
   padding: 2rem 1rem;
@@ -489,7 +438,6 @@ footer {
 
 .footer-redes {
   display: flex;
-  justify-content: center;
   gap: 1.2rem;
 }
 
@@ -501,11 +449,4 @@ footer {
 
 .icone-rede:hover {
   color: var(--branco);
-}
-
-.footer-desenvolvimento {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  color: var(--borda);
 }
