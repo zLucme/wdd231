@@ -231,7 +231,8 @@ main h1 {
 }
 
 .conteudo-principal-grid,
-#membros-container.grid {
+#membros-container.grid,
+#destaques-container.grid {
   display: grid;
   gap: 1.5rem;
 }
@@ -261,6 +262,15 @@ main h1 {
 
 .clima-atual {
   margin-bottom: 0.75rem;
+}
+
+#clima-container {
+  min-height: 160px;
+}
+
+#membros-container,
+#destaques-container {
+  min-height: 240px;
 }
 
 .cartao-membro {
