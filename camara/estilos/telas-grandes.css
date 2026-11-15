@@ -35,7 +35,6 @@
   #membros-container.list .cartao-membro {
     display: grid;
     grid-template-columns: 280px 1fr;
-    column-gap: 1.5rem;
     align-items: center;
   }
 
@@ -43,8 +42,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     align-items: center;
-    gap: 0.8rem;
-    padding: 0;
   }
 
   footer {
@@ -63,7 +60,6 @@
   #menu-navegacao {
     order: 2;
     width: auto;
-    margin-top: 0;
     border-top: none;
     padding-top: 0;
   }
