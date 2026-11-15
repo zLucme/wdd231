@@ -14,6 +14,23 @@
   --titulo: #14284b;
   --cabecalho-bg: #14284b;
   --rodape-bg: #0f1d38;
+
+  --branco: #ffffff;
+  --transparente: transparent;
+  --borda-clara: #8fa3c4;
+  --borda-botao: #8a97ab;
+  
+  --sombra-leve: rgba(0, 0, 0, 0.04);
+  --sombra-media: rgba(0, 0, 0, 0.08);
+  --sombra-forte: rgba(0, 0, 0, 0.3);
+  --sombra-heroi: rgba(14, 28, 54, 0.15);
+  
+  --nivel-3-bg: #f6dc9a;
+  --nivel-3-txt: #3d2b00;
+  --nivel-2-bg: #dde3ea;
+  --nivel-2-txt: #222c3a;
+  --nivel-1-bg: #f0d3bd;
+  --nivel-1-txt: #5b2a0a;
 }
 
 body.dark-mode {
@@ -51,7 +68,7 @@ body {
 
 header {
   background-color: var(--cabecalho-bg);
-  color: #ffffff;
+  color: var(--branco);
   border-bottom: 4px solid var(--ouro);
   padding: 0.8rem 1rem;
 }
@@ -78,7 +95,7 @@ header {
   width: 50px;
   height: 50px;
   aspect-ratio: 1 / 1;
-  background-color: #ffffff;
+  background-color: var(--branco);
   padding: 2px;
 }
 
@@ -91,13 +108,13 @@ header {
 .nome-camara {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--branco);
 }
 
 .subtitulo-camara {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #d6deec;
+  color: var(--borda);
 }
 
 .controles-cabecalho {
@@ -107,18 +124,18 @@ header {
 
 #modo-escuro,
 #btn-hamburguer {
-  background-color: #00000000;
-  border: 1px solid #8fa3c4;
+  background-color: var(--transparente);
+  border: 1px solid var(--borda-clara);
   border-radius: 6px;
   padding: 0.3rem 0.6rem;
   font-size: 1.2rem;
   cursor: pointer;
-  color: #ffffff;
+  color: var(--branco);
 }
 
 #modo-escuro:hover,
 #btn-hamburguer:hover {
-  background-color: #ffffff24;
+  background-color: var(--sombra-media);
 }
 
 #menu-navegacao {
@@ -143,20 +160,20 @@ header {
 #lista-menu li a[aria-disabled="true"] {
   display: block;
   padding: 0.7rem;
-  color: #ffffff;
+  color: var(--branco);
   text-decoration: none;
   font-weight: 600;
-  border-bottom: 1px solid #ffffff26;
+  border-bottom: 1px solid var(--sombra-media);
 }
 
 #lista-menu li a:hover,
 #lista-menu li a[aria-disabled="true"]:hover {
-  background-color: #ffffff24;
+  background-color: var(--sombra-media);
 }
 
 #lista-menu li a.active {
   background-color: var(--ouro);
-  color: #14284b;
+  color: var(--azul-escuro);
 }
 
 #lista-menu li a[aria-disabled="true"] {
@@ -194,7 +211,7 @@ main h1 {
   padding: 0.5rem 1.4rem;
   background-color: var(--superficie);
   color: var(--titulo);
-  border: 1px solid #8a97ab;
+  border: 1px solid var(--borda-botao);
   cursor: pointer;
   font-weight: 700;
 }
@@ -210,8 +227,8 @@ main h1 {
 
 .visualizacao-botoes button.ativo {
   background-color: var(--botao-ativo);
-  color: #ffffff;
-  border-color: #00000000;
+  color: var(--branco);
+  border-color: var(--transparente);
   position: relative;
 }
 
@@ -222,7 +239,7 @@ main h1 {
   margin: 0 auto 2rem auto;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(14, 28, 54, 0.15);
+  box-shadow: 0 8px 24px var(--sombra-heroi);
 }
 
 .imagem-heroi {
@@ -249,12 +266,12 @@ main h1 {
   right: 20px;
   z-index: 2;
   background-color: var(--ouro);
-  color: #14284b;
+  color: var(--azul-escuro);
   font-weight: 700;
   padding: 0.85rem 1.5rem;
   text-decoration: none;
   border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px var(--sombra-forte);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -276,12 +293,12 @@ main h1 {
   border-radius: 10px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px var(--sombra-leve);
   transition: box-shadow 0.3s ease;
 }
 
 .painel-secao:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px var(--sombra-media);
 }
 
 .painel-secao h2 {
@@ -322,13 +339,13 @@ main h1 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px var(--sombra-leve);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cartao-membro:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px var(--sombra-media);
 }
 
 .cartao-membro:has(.nivel-3) {
@@ -372,7 +389,7 @@ main h1 {
   height: 90px;
   aspect-ratio: 1 / 1;
   object-fit: contain;
-  background-color: #ffffff;
+  background-color: var(--branco);
   border: 1px solid var(--borda);
   border-radius: 6px;
   flex-shrink: 0;
@@ -407,18 +424,18 @@ main h1 {
 }
 
 .nivel-3 {
-  background-color: #f6dc9a;
-  color: #3d2b00;
+  background-color: var(--nivel-3-bg);
+  color: var(--nivel-3-txt);
 }
 
 .nivel-2 {
-  background-color: #dde3ea;
-  color: #222c3a;
+  background-color: var(--nivel-2-bg);
+  color: var(--nivel-2-txt);
 }
 
 .nivel-1 {
-  background-color: #f0d3bd;
-  color: #5b2a0a;
+  background-color: var(--nivel-1-bg);
+  color: var(--nivel-1-txt);
 }
 
 #membros-container.list {
@@ -452,7 +469,7 @@ main h1 {
 
 footer {
   background-color: var(--rodape-bg);
-  color: #f4f7fb;
+  color: var(--fundo);
   border-top: 4px solid var(--ouro);
   padding: 2rem 1rem;
   margin-top: 3rem;
@@ -467,7 +484,7 @@ footer {
 .footer-bloco h2 {
   font-size: 1.05rem;
   margin-bottom: 0.4rem;
-  color: #ffffff;
+  color: var(--branco);
 }
 
 .footer-redes {
@@ -479,16 +496,16 @@ footer {
 .icone-rede {
   width: 32px;
   height: 32px;
-  color: #d6deec;
+  color: var(--borda);
 }
 
 .icone-rede:hover {
-  color: #ffffff;
+  color: var(--branco);
 }
 
 .footer-desenvolvimento {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  color: #d6deec;
+  color: var(--borda);
 }
