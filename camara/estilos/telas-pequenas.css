@@ -67,7 +67,8 @@ header {
   padding: 0.8rem 1rem;
 }
 
-header div,
+.marca,
+.controles-cabecalho,
 .visualizacao-botoes,
 .cartao-corpo,
 .footer-redes,
@@ -99,6 +100,7 @@ img {
 }
 
 .marca-texto {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
@@ -150,7 +152,11 @@ nav {
   border-bottom: 1px solid var(--sombra);
 }
 
-[class*="botao-"] {
+.botao-cta,
+.botao-modal,
+.botao-enviar,
+.botao-voltar,
+.botao-fechar-modal {
   align-self: flex-start;
   padding: 0.65rem 1.3rem;
   border: 1px solid var(--transparente);
@@ -164,11 +170,15 @@ nav {
 
 .visualizacao-botoes button,
 .botao-secundario {
+  align-self: flex-start;
   padding: 0.55rem 1.3rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
   background: var(--superficie);
   color: var(--titulo);
-  border-color: var(--borda);
   font-weight: 700;
+  text-decoration: none;
+  text-align: center;
 }
 
 .botao-carrossel {
@@ -189,7 +199,14 @@ nav {
   background: var(--transparente);
 }
 
-[class*="botao-"]:hover,
+.botao-cta:hover,
+.botao-modal:hover,
+.botao-enviar:hover,
+.botao-voltar:hover,
+.botao-fechar-modal:hover,
+.botao-secundario:hover,
+.botao-carrossel:hover,
+.visualizacao-botoes button:hover,
 #lista-menu a.active,
 .ativo.ativo {
   background: var(--ouro-hover);
@@ -248,10 +265,10 @@ main h1 {
   max-width: calc(100% - 20px);
   padding: clamp(0.5rem, 1.8vw, 0.85rem) clamp(0.9rem, 3vw, 1.5rem);
   font-size: clamp(0.85rem, 2.2vw, 1rem);
-  box-shadow: 0 4px 12px var(--sombra);
 }
 
-[class*="grid"] {
+.grid,
+.conteudo-principal-grid {
   display: grid;
   gap: 1.5rem;
 }
@@ -264,7 +281,6 @@ dialog {
   border-top: 4px solid var(--ouro);
   border-radius: 10px;
   padding: 1.25rem;
-  box-shadow: 0 4px 12px var(--sombra);
 }
 
 .preco-plano,
@@ -281,7 +297,9 @@ main ul {
   gap: 0.5rem;
 }
 
-[id$="-container"] {
+#membros-container,
+#destaques-container,
+#clima-container {
   min-height: 180px;
 }
 
@@ -338,6 +356,8 @@ footer {
   gap: 1.5rem;
   text-align: center;
   font-size: 0.9rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 260px;
 }
 
 .icone-rede {
@@ -356,8 +376,8 @@ form,
   gap: 0.85rem;
 }
 
-form div,
-dl div,
+.campo-grupo,
+.item-resumo,
 .carrossel-paginacao,
 .cartao-dados {
   display: flex;
@@ -423,6 +443,7 @@ textarea {
 @media (prefers-reduced-motion: no-preference) {
   .grade-niveis {
     transition: transform 0.4s ease;
+    will-change: transform;
   }
 }
 
