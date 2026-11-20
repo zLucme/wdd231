@@ -191,7 +191,7 @@
             type="text"
             id="cargo"
             name="cargo"
-            autocomplete="organization-title"
+            autocomplete="cargo-na-organizacao"
             pattern="[A-Za-zÀ-ÿ\s\-]{7,}"
             placeholder="Ex.: Diretor Comercial"
             title="O cargo deve ter no mínimo 7 caracteres e conter apenas letras, espaços ou hífens"
@@ -235,7 +235,7 @@
             id="empresa"
             name="empresa"
             required
-            autocomplete="organization"
+            autocomplete="organizacao"
             title="Informe o nome da sua empresa ou organização"
             aria-describedby="erro-empresa">
           <span id="erro-empresa" class="erro-campo" aria-live="polite"></span>
@@ -246,10 +246,8 @@
           <select
             id="nivel"
             name="nivel"
-            required
             title="Selecione o nível de associação desejado"
             aria-describedby="erro-nivel">
-            <option value="">Selecione um nível de associação...</option>
             <option value="np">NP — Sem Fins Lucrativos (NP)</option>
             <option value="bronze">Nível Bronze (Bronze) — R$ 90/mês</option>
             <option value="silver">Nível Prata (Silver) — R$ 180/mês</option>
