@@ -26,17 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const campoCargo = document.getElementById("cargo");
-  const campoEmpresa = document.getElementById("empresa");
-
-  if (campoCargo) {
-    campoCargo.setAttribute("autocomplete", "cargo-na-organizacao");
-  }
-
-  if (campoEmpresa) {
-    campoEmpresa.setAttribute("autocomplete", "organizacao");
-  }
-
   const campoTimestamp = document.getElementById("timestamp");
   const formulario = document.getElementById("form-associacao");
 
