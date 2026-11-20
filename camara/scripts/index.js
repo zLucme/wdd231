@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="slogan">${membro.slogan || membro.ramo}</p>
           </div>
           <div class="cartao-corpo">
-            <img src="imagens/${membro.imagem}" alt="Logótipo de ${membro.nome}" width="90" height="90">
+            <img src="imagens/${membro.imagem}" alt="Logótipo de ${membro.nome}" width="90" height="90" loading="lazy" decoding="async">
             <div class="cartao-dados">
               <p><strong>E-MAIL:</strong> ${membro.email || "contato@empresa.com"}</p>
               <p><strong>TELEFONE:</strong> ${membro.telefone}</p>
@@ -137,7 +137,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   requestAnimationFrame(() => {
-    carregarDadosClima();
     carregarEmpresasDestaque();
   });
+
+  const agendarClima = () => {
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(() => carregarDadosClima(), { timeout: 1500 });
+    } else {
+      window.setTimeout(carregarDadosClima, 400);
+    }
+  };
+
+  if (document.readyState === "complete") {
+    agendarClima();
+  } else {
+    window.addEventListener("load", agendarClima, { once: true });
+  }
 });
