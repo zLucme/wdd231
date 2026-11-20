@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnModoEscuro = document.getElementById("modo-escuro");
 
   if (anoSpan) {
-    anoSpan.textContent = new Date().getFullYear();
+    anoSpan.textContent = String(new Date().getFullYear());
   }
 
   if (modificacaoSpan) {
@@ -45,6 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nivel === 3) return "Ouro";
     if (nivel === 2) return "Prata";
     return "Membro";
+  }
+
+  function criarLinhaRotulo(rotulo, valorTexto) {
+    const p = document.createElement("p");
+    const strong = document.createElement("strong");
+    strong.textContent = rotulo;
+    p.append(strong, ` ${valorTexto}`);
+    return p;
   }
 
   function renderizarMembros(membros) {
@@ -83,15 +91,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const dados = document.createElement("div");
       dados.className = "cartao-dados";
 
-      const email = document.createElement("p");
-      email.innerHTML = `<strong>E-MAIL:</strong> ${membro.email || "contato@empresa.com"}`;
-
-      const telefone = document.createElement("p");
-      telefone.innerHTML = `<strong>TELEFONE:</strong> ${membro.telefone}`;
+      const email = criarLinhaRotulo("E-MAIL:", membro.email || "contato@empresa.com");
+      const telefone = criarLinhaRotulo("TELEFONE:", membro.telefone);
 
       const site = document.createElement("p");
-      const siteLimpo = membro.site.replace(/^https?:\/\//, "");
-      site.innerHTML = `<strong>SITE:</strong> <a href="${membro.site}" target="_blank" rel="noopener noreferrer">${siteLimpo}</a>`;
+      const strongSite = document.createElement("strong");
+      strongSite.textContent = "SITE:";
+      const linkSite = document.createElement("a");
+      linkSite.href = membro.site;
+      linkSite.target = "_blank";
+      linkSite.rel = "noopener noreferrer";
+      linkSite.textContent = membro.site.replace(/^https?:\/\//, "");
+      site.append(strongSite, " ", linkSite);
 
       const nivel = document.createElement("p");
       nivel.className = `nivel nivel-${membro.nivel}`;
@@ -122,5 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  carregarMembros();
+  requestAnimationFrame(() => {
+    carregarMembros();
+  });
 });

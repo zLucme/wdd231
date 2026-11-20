@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const listaMenu = document.getElementById("lista-menu");
   const btnModoEscuro = document.getElementById("modo-escuro");
 
-  if (anoSpan) anoSpan.textContent = new Date().getFullYear();
+  if (anoSpan) anoSpan.textContent = String(new Date().getFullYear());
   if (modificacaoSpan) modificacaoSpan.textContent = document.lastModified;
 
   if (btnHamburguer && listaMenu) {
@@ -136,6 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  carregarDadosClima();
-  carregarEmpresasDestaque();
+  requestAnimationFrame(() => {
+    carregarDadosClima();
+    carregarEmpresasDestaque();
+  });
 });

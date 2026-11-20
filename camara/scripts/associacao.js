@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnModoEscuro = document.getElementById("modo-escuro");
 
   if (anoSpan) {
-    anoSpan.textContent = new Date().getFullYear();
+    anoSpan.textContent = String(new Date().getFullYear());
   }
 
   if (modificacaoSpan) {
@@ -34,8 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
       campoTimestamp.value = new Date().toISOString();
     }
   }
-
-  atualizarTimestamp();
 
   const mensagensErro = {
     nome: "Por favor, informe o seu primeiro nome.",
@@ -150,8 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (trilhoNiveis && cartoesNivel.length > 0) {
-    atualizarCarrossel(0);
-
     if (btnAnterior) {
       btnAnterior.addEventListener("click", () => {
         atualizarCarrossel(indiceAtual - 1);
@@ -289,4 +285,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     definirTexto("resumo-timestamp", dataFormatada);
   }
+
+  requestAnimationFrame(() => {
+    atualizarTimestamp();
+    if (trilhoNiveis && cartoesNivel.length > 0) {
+      atualizarCarrossel(0);
+    }
+  });
 });
