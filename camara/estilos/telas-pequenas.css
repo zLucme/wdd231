@@ -14,7 +14,15 @@
   --titulo: #14284b;
   --cabecalho-bg: #14284b;
   --branco: #ffffff;
+  --transparente: #00000000;
   --sombra: #0000001a;
+  --gradiente-heroi: #0e284bcc;
+  --nivel-3-bg: #f6dc9a;
+  --nivel-3-txt: #3d2b00;
+  --nivel-2-bg: #dde3ea;
+  --nivel-2-txt: #222c3a;
+  --nivel-1-bg: #f0d3bd;
+  --nivel-1-txt: #5b2a0a;
   --erro: #b91c1c;
 }
 
@@ -48,6 +56,8 @@ input,
 select,
 textarea {
   font: inherit;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
 }
 
 button {
@@ -61,13 +71,6 @@ button {
 header,
 footer {
   background: var(--cabecalho-bg);
-}
-
-header,
-footer,
-#modo-escuro,
-#btn-hamburguer,
-#lista-menu li a {
   color: var(--branco);
 }
 
@@ -76,15 +79,11 @@ header {
   padding: 0.8rem 1rem;
 }
 
-.header-container,
 .marca,
 .controles-cabecalho,
 .visualizacao-botoes,
 .cartao-corpo,
 .footer-redes,
-.cartao-nivel-topo,
-.modal-cabecalho,
-.carrossel-controles,
 .carrossel-indicadores {
   display: flex;
   align-items: center;
@@ -95,8 +94,11 @@ header {
 .cartao-nivel-topo,
 .modal-cabecalho,
 .carrossel-controles {
+  display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
+  gap: 0.8rem;
 }
 
 .header-container,
@@ -106,123 +108,23 @@ main {
 }
 
 .logo-camara,
-.cartao-corpo img,
-#modo-escuro,
-#btn-hamburguer,
-.visualizacao-botoes button,
-.botao-cta,
-.botao-enviar,
-.botao-modal,
-.botao-fechar-modal,
-.botao-voltar,
-.botao-secundario,
-.campo-grupo input,
-.campo-grupo select,
-.campo-grupo textarea,
-.lista-resumo,
-.cartao-nivel {
-  border-radius: 6px;
-}
-
-.heroi-container,
-.carrossel-janela,
-.painel-secao,
-.cartao-membro,
-dialog.modal-nivel {
-  border-radius: 10px;
-}
-
-.botao-carrossel,
-.indicador-carrossel {
-  border-radius: 50%;
-}
-
-.logo-camara,
 .cartao-corpo img {
+  border-radius: 6px;
   object-fit: contain;
   background: var(--branco);
+  border: 1px solid var(--borda);
   padding: 2px;
 }
 
-.cartao-corpo img,
-.visualizacao-botoes button,
-.botao-secundario,
-.campo-grupo input,
-.campo-grupo select,
-.campo-grupo textarea,
-.lista-resumo,
-.cartao-nivel,
-.botao-carrossel {
-  border: 1px solid var(--borda);
-}
-
 .marca-texto,
-#lista-menu.aberto,
-.eventos-recentes ul,
-.clima-previsao ul,
-.cartao-membro,
-.cartao-dados,
-#membros-container.list,
-footer,
-.form-associacao,
-.campo-grupo,
-.carrossel-niveis,
-.carrossel-paginacao,
-.modal-corpo ul,
-.item-resumo,
-.acoes-confirmacao {
+#lista-menu.aberto {
   display: flex;
   flex-direction: column;
 }
 
-.nome-camara,
-#lista-menu li a.active,
-.visualizacao-botoes button,
-.botao-cta,
-.botao-enviar,
-.botao-modal,
-.botao-fechar-modal,
-.botao-voltar,
-.botao-secundario,
-.botao-carrossel,
-.painel-secao h2,
-.cartao-cabecalho h2,
-.cartao-nivel-topo h3,
-.modal-cabecalho h3,
-.preco-plano,
-.campo-grupo label,
-.item-resumo dd,
-.nivel {
-  font-weight: 700;
-}
-
-#lista-menu li a,
-.cartao-dados a,
-.obrigatorio,
-.erro-campo {
-  font-weight: 600;
-}
-
-#lista-menu,
-footer,
-.botao-cta,
-.botao-enviar,
-.botao-modal,
-.botao-fechar-modal,
-.botao-voltar,
-.botao-secundario {
-  text-align: center;
-}
-
-#lista-menu li a,
-.botao-cta,
-.botao-voltar,
-.botao-secundario {
-  text-decoration: none;
-}
-
 .nome-camara {
   font-size: 1.35rem;
+  font-weight: 700;
 }
 
 .subtitulo-camara,
@@ -233,10 +135,10 @@ footer,
 
 #modo-escuro,
 #btn-hamburguer {
-  background: transparent;
-  border: 1px solid var(--borda);
+  background: var(--transparente);
   padding: 0.3rem 0.6rem;
   font-size: 1.2rem;
+  color: var(--branco);
 }
 
 #modo-escuro:hover,
@@ -247,11 +149,6 @@ footer,
 
 #menu-navegacao,
 .imagem-heroi,
-.campo-grupo input,
-.campo-grupo select,
-.campo-grupo textarea,
-.carrossel-janela,
-.grade-niveis,
 .botao-fechar-modal {
   width: 100%;
 }
@@ -259,11 +156,15 @@ footer,
 #lista-menu {
   list-style: none;
   display: none;
+  text-align: center;
 }
 
 #lista-menu li a {
   display: block;
   padding: 0.7rem;
+  color: var(--branco);
+  text-decoration: none;
+  font-weight: 600;
   border-bottom: 1px solid var(--sombra);
 }
 
@@ -272,23 +173,43 @@ footer,
   padding: 0.55rem 1.3rem;
   background: var(--superficie);
   color: var(--titulo);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
 }
 
-#lista-menu li a.active,
-.visualizacao-botoes button.ativo,
 .botao-cta,
 .botao-enviar,
 .botao-modal,
 .botao-fechar-modal,
-.botao-voltar,
+.botao-voltar {
+  padding: 0.75rem 1.3rem;
+  border: 1px solid var(--transparente);
+  border-radius: 6px;
+  background: var(--ouro);
+  color: var(--azul-escuro);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+}
+
+#lista-menu li a.active,
+.visualizacao-botoes button.ativo,
 .botao-carrossel:hover {
   background: var(--ouro);
   color: var(--azul-escuro);
+  border-color: var(--transparente);
+  font-weight: 700;
 }
 
-.visualizacao-botoes button.ativo,
-.botao-carrossel:hover {
-  border-color: transparent;
+.botao-cta:hover,
+.botao-enviar:hover,
+.botao-modal:hover,
+.botao-fechar-modal:hover,
+.botao-voltar:hover {
+  background: var(--ouro-hover);
 }
 
 #lista-menu li a[aria-disabled="true"] {
@@ -307,18 +228,16 @@ main h1 {
 
 .intro,
 .visualizacao-botoes,
-.painel-secao {
+.painel-secao,
+.heroi-container {
   margin-bottom: 1.5rem;
 }
 
 .heroi-container,
 .carrossel-janela {
   position: relative;
+  border-radius: 10px;
   overflow: hidden;
-}
-
-.heroi-container {
-  margin-bottom: 2rem;
 }
 
 .imagem-heroi {
@@ -333,7 +252,7 @@ main h1 {
   position: absolute;
   inset: auto 0 0;
   height: clamp(56px, 35%, 110px);
-  background: linear-gradient(to top, #0e284bcc, transparent);
+  background: linear-gradient(to top, var(--gradiente-heroi), var(--transparente));
   pointer-events: none;
 }
 
@@ -345,21 +264,7 @@ main h1 {
   max-width: calc(100% - 20px);
   padding: clamp(0.5rem, 1.8vw, 0.85rem) clamp(0.9rem, 3vw, 1.5rem);
   font-size: clamp(0.85rem, 2.2vw, 1rem);
-}
-
-.botao-cta,
-.painel-secao,
-.cartao-membro,
-dialog.modal-nivel {
   box-shadow: 0 4px 12px var(--sombra);
-}
-
-.botao-cta:hover,
-.botao-enviar:hover,
-.botao-modal:hover,
-.botao-fechar-modal:hover,
-.botao-voltar:hover {
-  background: var(--ouro-hover);
 }
 
 .conteudo-principal-grid,
@@ -376,32 +281,28 @@ dialog.modal-nivel {
   background: var(--superficie);
   border: 1px solid var(--borda);
   border-top: 4px solid var(--ouro);
+  border-radius: 10px;
   padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--sombra);
 }
 
-.painel-secao h2,
-.cartao-cabecalho h2,
-.cartao-nivel-topo h3,
-.modal-cabecalho h3,
+main h2,
+main h3,
 .preco-plano,
 .campo-grupo label,
-.item-resumo dd,
-.botao-carrossel {
+.item-resumo dd {
   color: var(--titulo);
-}
-
-.painel-secao h2,
-.cartao-cabecalho h2,
-.clima-atual,
-.modal-cabecalho,
-.preco-plano {
-  margin-bottom: 0.5rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
 }
 
 .eventos-recentes ul,
 .clima-previsao ul,
 .modal-corpo ul {
+  display: flex;
+  flex-direction: column;
   padding-left: 1.25rem;
+  margin: 0.5rem 0 1rem;
   gap: 0.5rem;
 }
 
@@ -413,6 +314,8 @@ dialog.modal-nivel {
 
 .cartao-membro {
   --nivel-cor: var(--bronze);
+  display: flex;
+  flex-direction: column;
   border-top-color: var(--nivel-cor);
   padding: 1rem;
   gap: 0.8rem;
@@ -428,7 +331,6 @@ dialog.modal-nivel {
 
 .slogan,
 .cartao-dados,
-.cartao-dados p strong,
 .dica-campo,
 .contador-carrossel,
 .item-resumo dt {
@@ -436,14 +338,16 @@ dialog.modal-nivel {
   color: var(--texto-suave);
 }
 
-.cartao-dados,
-.item-resumo dd {
+.cartao-dados {
+  display: flex;
+  flex-direction: column;
   gap: 0.25rem;
   overflow-wrap: anywhere;
 }
 
 .cartao-dados a {
   color: var(--azul-link);
+  font-weight: 600;
 }
 
 .nivel {
@@ -451,21 +355,22 @@ dialog.modal-nivel {
   padding: 0.1rem 0.7rem;
   border-radius: 99px;
   font-size: 0.8rem;
+  font-weight: 700;
 }
 
 .nivel-3 {
-  background: #f6dc9a;
-  color: #3d2b00;
+  background: var(--nivel-3-bg);
+  color: var(--nivel-3-txt);
 }
 
 .nivel-2 {
-  background: #dde3ea;
-  color: #222c3a;
+  background: var(--nivel-2-bg);
+  color: var(--nivel-2-txt);
 }
 
 .nivel-1 {
-  background: #f0d3bd;
-  color: #5b2a0a;
+  background: var(--nivel-1-bg);
+  color: var(--nivel-1-txt);
 }
 
 .nivel-np {
@@ -474,6 +379,8 @@ dialog.modal-nivel {
 }
 
 #membros-container.list {
+  display: flex;
+  flex-direction: column;
   gap: 0.75rem;
 }
 
@@ -493,11 +400,14 @@ dialog.modal-nivel {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
   border-top: 4px solid var(--ouro);
   padding: 2rem 1rem;
   margin-top: 3rem;
   align-items: center;
   gap: 1.5rem;
+  text-align: center;
   font-size: 0.9rem;
 }
 
@@ -509,6 +419,8 @@ footer {
 .form-associacao,
 .carrossel-niveis,
 .acoes-confirmacao {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -516,12 +428,15 @@ footer {
 .campo-grupo,
 .carrossel-paginacao,
 .item-resumo {
+  display: flex;
+  flex-direction: column;
   gap: 0.3rem;
 }
 
 .obrigatorio,
 .erro-campo {
   color: var(--erro);
+  font-weight: 600;
 }
 
 .erro-campo {
@@ -529,37 +444,22 @@ footer {
   min-height: 1.2rem;
 }
 
-.campo-grupo input,
-.campo-grupo select,
-.campo-grupo textarea,
-.lista-resumo,
-.cartao-nivel,
-.botao-carrossel {
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
   background: var(--fundo);
   color: var(--texto);
 }
 
-.campo-grupo input,
-.campo-grupo select,
-.campo-grupo textarea {
-  padding: 0.7rem 0.85rem;
-}
-
-.campo-grupo textarea {
+textarea {
   resize: vertical;
   min-height: 7rem;
 }
 
-.campo-grupo :is(input, select, textarea)[aria-invalid="true"] {
+[aria-invalid="true"] {
   border-color: var(--erro);
-}
-
-.botao-enviar,
-.botao-modal,
-.botao-fechar-modal,
-.botao-voltar {
-  padding: 0.75rem 1.3rem;
-  border: 1px solid transparent;
 }
 
 .botao-modal {
@@ -588,11 +488,16 @@ footer {
   min-height: 210px;
   justify-content: space-between;
   padding: 1.25rem;
+  background: var(--fundo);
 }
 
 .botao-carrossel {
   width: 42px;
   height: 42px;
+  border-radius: 50%;
+  background: var(--fundo);
+  color: var(--titulo);
+  font-weight: 700;
 }
 
 .carrossel-paginacao {
@@ -602,8 +507,9 @@ footer {
 .indicador-carrossel {
   width: 12px;
   height: 12px;
+  border-radius: 50%;
   border: 2px solid var(--titulo);
-  background: transparent;
+  background: var(--transparente);
 }
 
 .indicador-carrossel.ativo {
@@ -624,11 +530,7 @@ dialog.modal-nivel {
 }
 
 dialog.modal-nivel::backdrop {
-  background: #0e284bcc;
-}
-
-.modal-corpo ul {
-  margin: 0.75rem 0 1.25rem;
+  background: var(--gradiente-heroi);
 }
 
 .painel-confirmacao {
@@ -640,6 +542,9 @@ dialog.modal-nivel::backdrop {
   gap: 0.75rem;
   margin: 1.25rem 0;
   padding: 1.25rem;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: var(--fundo);
 }
 
 .item-resumo + .item-resumo {
