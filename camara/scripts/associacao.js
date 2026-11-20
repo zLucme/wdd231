@@ -63,9 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!valido) {
       campo.setAttribute("aria-invalid", "true");
       spanErro.textContent = mensagensErro[campo.id] || campo.validationMessage;
+      if (campo.id === "cargo") {
+        campo.setAttribute("aria-describedby", "dica-cargo erro-cargo");
+      }
     } else {
       campo.removeAttribute("aria-invalid");
       spanErro.textContent = "";
+      if (campo.id === "cargo") {
+        campo.setAttribute("aria-describedby", "dica-cargo");
+      }
     }
 
     return valido;
