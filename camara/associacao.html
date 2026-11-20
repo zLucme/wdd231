@@ -10,45 +10,6 @@
   <link rel="icon" href="imagens/camara.ico" type="image/x-icon">
   <link rel="preload" as="image" href="imagens/camara.jpg">
 
-  <style>
-    :root {
-      --azul-escuro: #14284b;
-      --ouro: #c8962b;
-      --fundo: #f2f5f9;
-      --superficie: #ffffff;
-      --texto: #1b2433;
-      --texto-suave: #4a5568;
-      --borda: #d3dae4;
-      --titulo: #14284b;
-      --cabecalho-bg: #14284b;
-      --branco: #ffffff;
-      --sombra: #0000001a;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font: 1rem/1.6 "Roboto", Arial, sans-serif; color: var(--texto); background: var(--fundo); }
-    header { background: var(--cabecalho-bg); color: var(--branco); border-bottom: 4px solid var(--ouro); padding: 0.8rem 1rem; }
-    .header-container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.8rem; max-width: 1200px; margin: 0 auto; }
-    header div { display: flex; align-items: center; gap: 0.8rem; }
-    .marca-texto { flex-direction: column; align-items: flex-start; gap: 0; }
-    .nome-camara { font-size: 1.35rem; font-weight: 700; }
-    .subtitulo-camara { font-size: 0.85rem; color: var(--borda); }
-    #lista-menu { list-style: none; display: none; }
-    main { display: flex; flex-direction: column; gap: 1.4rem; max-width: 1200px; margin: 0 auto; padding: 2rem 1rem 1rem; }
-    main h1 { color: var(--titulo); font-size: clamp(1.9rem, 5vw, 2.6rem); }
-    .painel-secao { background: var(--superficie); border: 1px solid var(--borda); border-top: 4px solid var(--ouro); border-radius: 10px; padding: 1.25rem; box-shadow: 0 4px 12px var(--sombra); }
-    .carrossel-janela { position: relative; border-radius: 10px; overflow: hidden; }
-    .grade-niveis { display: flex; }
-    .cartao-nivel { flex: 0 0 100%; min-height: 210px; display: flex; flex-direction: column; justify-content: space-between; gap: 0.85rem; background: var(--fundo); border: 1px solid var(--borda); border-top: 4px solid var(--ouro); border-radius: 10px; padding: 1.25rem; }
-  </style>
-
-  <link rel="stylesheet" href="estilos/telas-pequenas.css" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="estilos/telas-grandes.css" media="(min-width: 768px)">
-  <noscript>
-    <link rel="stylesheet" href="estilos/normalize.css">
-    <link rel="stylesheet" href="estilos/telas-pequenas.css">
-    <link rel="stylesheet" href="estilos/telas-grandes.css">
-  </noscript>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -69,6 +30,9 @@
   <meta name="twitter:title" content="Associe-se à Câmara | Câmara de Comércio de Monte Mor">
   <meta name="twitter:description" content="Faça parte da Câmara de Comércio de Monte Mor. Preencha o formulário de associação e impulsione o seu negócio local.">
   <meta name="twitter:image" content="https://zlucme.github.io/wdd231/camara/imagens/camara-og.jpg">
+
+  <link rel="stylesheet" href="estilos/telas-pequenas.css">
+  <link rel="stylesheet" href="estilos/telas-grandes.css" media="(min-width: 768px)">
 
   <script src="scripts/associacao.js" defer></script>
 </head>
