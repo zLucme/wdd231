@@ -190,8 +190,8 @@ nav {
 }
 
 [class*="botao-"]:hover,
-.active,
-.ativo {
+#lista-menu a.active,
+.ativo.ativo {
   background: var(--ouro-hover);
   color: var(--azul-escuro);
 }
