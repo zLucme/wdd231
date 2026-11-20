@@ -243,6 +243,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const sobrenome = parametros.get("sobrenome")?.trim() || "";
     const nomeCompleto = `${nome} ${sobrenome}`.trim() || "Não informado";
 
+    const nomesNivel = {
+      np: "NP — Sem Fins Lucrativos (Isento)",
+      bronze: "Nível Bronze",
+      silver: "Nível Prata",
+      gold: "Nível Ouro"
+    };
+
+    const nivelParam = parametros.get("nivel")?.trim() || "";
+    const nivelFormatado = nomesNivel[nivelParam.toLowerCase()] || nivelParam || "Não informado";
+
     const definirTexto = (idElemento, valorPadrao) => {
       const elemento = document.getElementById(idElemento);
       if (elemento) {
@@ -255,7 +265,7 @@ document.addEventListener("DOMContentLoaded", () => {
     definirTexto("resumo-email", parametros.get("email")?.trim() || "Não informado");
     definirTexto("resumo-telefone", parametros.get("telefone")?.trim() || "Não informado");
     definirTexto("resumo-empresa", parametros.get("empresa")?.trim() || "Não informado");
-    definirTexto("resumo-nivel", parametros.get("nivel")?.trim() || "Não informado");
+    definirTexto("resumo-nivel", nivelFormatado);
     definirTexto("resumo-descricao", parametros.get("descricao")?.trim() || "Não informada");
 
     const timestampBruto = parametros.get("timestamp");
