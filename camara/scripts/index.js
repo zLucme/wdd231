@@ -40,38 +40,44 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error("Erro ao buscar dados meteorológicos.");
       }
 
-      const dadosAtual = await respostaAtual.json();
-      const dadosPrevisao = await respostaPrevisao.json();
+      const [dadosAtual, dadosPrevisao] = await Promise.all([
+        respostaAtual.json(),
+        respostaPrevisao.json()
+      ]);
 
       const tempAtual = Math.round(dadosAtual.main.temp);
       const descricao = dadosAtual.weather[0].description;
       const descricaoFormatada = descricao.charAt(0).toUpperCase() + descricao.slice(1);
 
-      const previsoesDiarias = dadosPrevisao.list.filter(item => item.dt_txt.includes("12:00:00")).slice(0, 3);
+      const previsoesDiarias = dadosPrevisao.list
+        .filter((item) => item.dt_txt.includes("12:00:00"))
+        .slice(0, 3);
 
-      let htmlPrevisao = `
+      const itensLista = previsoesDiarias
+        .map((dia) => {
+          const dataObj = new Date(dia.dt * 1000);
+          const nomeDia = dataObj.toLocaleDateString("pt-BR", {
+            weekday: "long",
+            day: "2-digit",
+            month: "2-digit"
+          });
+          const tempMax = Math.round(dia.main.temp_max);
+          const tempMin = Math.round(dia.main.temp_min);
+          const cond = dia.weather[0].description;
+          return `<li><strong>${nomeDia}:</strong> ${tempMax}°C / ${tempMin}°C - ${cond}</li>`;
+        })
+        .join("");
+
+      climaContainer.innerHTML = `
         <div class="clima-atual">
           <p><strong>Temperatura Atual:</strong> ${tempAtual}°C</p>
           <p><strong>Condição:</strong> ${descricaoFormatada}</p>
         </div>
         <div class="clima-previsao">
           <h3>Previsão para os Próximos 3 Dias:</h3>
-          <ul>
+          <ul>${itensLista}</ul>
+        </div>
       `;
-
-      previsoesDiarias.forEach(dia => {
-        const dataObj = new Date(dia.dt * 1000);
-        const nomeDia = dataObj.toLocaleDateString("pt-BR", { weekday: 'long', day: '2-digit', month: '2-digit' });
-        const tempMax = Math.round(dia.main.temp_max);
-        const tempMin = Math.round(dia.main.temp_min);
-        const cond = dia.weather[0].description;
-        
-        htmlPrevisao += `<li><strong>${nomeDia}:</strong> ${tempMax}°C / ${tempMin}°C - ${cond}</li>`;
-      });
-
-      htmlPrevisao += `</ul></div>`;
-      climaContainer.innerHTML = htmlPrevisao;
-
     } catch (erro) {
       console.error("Erro no clima:", erro);
       climaContainer.innerHTML = "<p>Não foi possível carregar os dados meteorológicos no momento.</p>";
@@ -85,23 +91,25 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const resposta = await fetch("dados/membros.json");
       if (!resposta.ok) throw new Error("Erro ao carregar arquivo de membros.");
-      
+
       const membros = await resposta.json();
+      const qualificados = membros.filter((m) => m.nivel === 2 || m.nivel === 3);
 
-      const qualificados = membros.filter(m => m.nivel === 2 || m.nivel === 3);
-
-      qualificados.sort(() => Math.random() - 0.5);
+      for (let i = qualificados.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [qualificados[i], qualificados[j]] = [qualificados[j], qualificados[i]];
+      }
 
       const quantidade = Math.random() < 0.5 ? 2 : 3;
       const selecionados = qualificados.slice(0, quantidade);
+      const fragmento = document.createDocumentFragment();
 
-      destaquesContainer.innerHTML = "";
-
-      selecionados.forEach(membro => {
+      selecionados.forEach((membro) => {
         const cartao = document.createElement("section");
         cartao.className = "cartao-membro";
 
         const nivelTexto = membro.nivel === 3 ? "Ouro" : "Prata";
+        const siteLimpo = membro.site.replace(/^https?:\/\//, "");
 
         cartao.innerHTML = `
           <div class="cartao-cabecalho">
@@ -109,18 +117,19 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="slogan">${membro.slogan || membro.ramo}</p>
           </div>
           <div class="cartao-corpo">
-            <img src="imagens/${membro.imagem}" alt="Logótipo de ${membro.nome}" loading="lazy" width="90" height="90">
+            <img src="imagens/${membro.imagem}" alt="Logótipo de ${membro.nome}" width="90" height="90">
             <div class="cartao-dados">
               <p><strong>E-MAIL:</strong> ${membro.email || "contato@empresa.com"}</p>
               <p><strong>TELEFONE:</strong> ${membro.telefone}</p>
-              <p><strong>SITE:</strong> <a href="${membro.site}" target="_blank" rel="noopener noreferrer">${membro.site.replace(/^https?:\/\//, '')}</a></p>
+              <p><strong>SITE:</strong> <a href="${membro.site}" target="_blank" rel="noopener noreferrer">${siteLimpo}</a></p>
               <p class="nivel nivel-${membro.nivel}">Nível: ${nivelTexto}</p>
             </div>
           </div>
         `;
-        destaquesContainer.appendChild(cartao);
+        fragmento.appendChild(cartao);
       });
 
+      destaquesContainer.replaceChildren(fragmento);
     } catch (erro) {
       console.error("Erro ao carregar destaques:", erro);
       destaquesContainer.innerHTML = "<p>Não foi possível carregar as empresas em destaque.</p>";

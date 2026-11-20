@@ -48,9 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderizarMembros(membros) {
-    container.innerHTML = "";
+    if (!container) return;
 
-    membros.forEach((membro) => {
+    const fragmento = document.createDocumentFragment();
+
+    membros.forEach((membro, indice) => {
       const card = document.createElement("section");
       card.className = "cartao-membro";
 
@@ -64,8 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
       slogan.className = "slogan";
       slogan.textContent = membro.slogan || membro.ramo;
 
-      cabecalhoCard.appendChild(titulo);
-      cabecalhoCard.appendChild(slogan);
+      cabecalhoCard.append(titulo, slogan);
 
       const corpoCard = document.createElement("div");
       corpoCard.className = "cartao-corpo";
@@ -73,7 +74,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const imagem = document.createElement("img");
       imagem.src = `imagens/${membro.imagem}`;
       imagem.alt = `Logótipo de ${membro.nome}`;
-      imagem.loading = "lazy";
+      if (indice >= 2) {
+        imagem.loading = "lazy";
+      }
       imagem.width = 90;
       imagem.height = 90;
 
@@ -87,25 +90,20 @@ document.addEventListener("DOMContentLoaded", () => {
       telefone.innerHTML = `<strong>TELEFONE:</strong> ${membro.telefone}`;
 
       const site = document.createElement("p");
-      site.innerHTML = `<strong>SITE:</strong> <a href="${membro.site}" target="_blank" rel="noopener noreferrer">${membro.site.replace(/^https?:\/\//, '')}</a>`;
+      const siteLimpo = membro.site.replace(/^https?:\/\//, "");
+      site.innerHTML = `<strong>SITE:</strong> <a href="${membro.site}" target="_blank" rel="noopener noreferrer">${siteLimpo}</a>`;
 
       const nivel = document.createElement("p");
       nivel.className = `nivel nivel-${membro.nivel}`;
       nivel.textContent = `Nível: ${obterNivelTexto(membro.nivel)}`;
 
-      dados.appendChild(email);
-      dados.appendChild(telefone);
-      dados.appendChild(site);
-      dados.appendChild(nivel);
-
-      corpoCard.appendChild(imagem);
-      corpoCard.appendChild(dados);
-
-      card.appendChild(cabecalhoCard);
-      card.appendChild(corpoCard);
-
-      container.appendChild(card);
+      dados.append(email, telefone, site, nivel);
+      corpoCard.append(imagem, dados);
+      card.append(cabecalhoCard, corpoCard);
+      fragmento.appendChild(card);
     });
+
+    container.replaceChildren(fragmento);
   }
 
   if (btnGrade && btnLista && container) {
