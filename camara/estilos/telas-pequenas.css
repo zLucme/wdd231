@@ -40,7 +40,9 @@ body.dark-mode {
 }
 
 body {
-  font: 1rem/1.6 "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   color: var(--texto);
   background: var(--fundo);
 }
