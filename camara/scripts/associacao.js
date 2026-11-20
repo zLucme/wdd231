@@ -3,28 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const modificacaoSpan = document.getElementById("ultima-modificacao");
   const btnHamburguer = document.getElementById("btn-hamburguer");
   const listaMenu = document.getElementById("lista-menu");
-  const btnModoEscuro = document.getElementById("modo-escuro");
 
-  if (anoSpan) {
-    anoSpan.textContent = String(new Date().getFullYear());
-  }
-
-  if (modificacaoSpan) {
-    modificacaoSpan.textContent = document.lastModified;
-  }
-
-  if (btnHamburguer && listaMenu) {
-    btnHamburguer.addEventListener("click", () => {
-      const aberto = listaMenu.classList.toggle("aberto");
-      btnHamburguer.setAttribute("aria-expanded", String(aberto));
-    });
-  }
-
-  if (btnModoEscuro) {
-    btnModoEscuro.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-    });
-  }
+  if (anoSpan) anoSpan.textContent = String(new Date().getFullYear());
+  if (modificacaoSpan) modificacaoSpan.textContent = document.lastModified;
 
   const campoTimestamp = document.getElementById("timestamp");
   const formulario = document.getElementById("form-associacao");
@@ -76,27 +57,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (formulario) {
-    const camposValidaveis = formulario.querySelectorAll("input:not([type='hidden']), select");
+    formulario.addEventListener("focusout", (evento) => {
+      const campo = evento.target;
+      if (campo instanceof HTMLInputElement || campo instanceof HTMLSelectElement) {
+        if (campo.type !== "hidden") validarCampo(campo);
+      }
+    });
 
-    camposValidaveis.forEach((campo) => {
-      campo.addEventListener("blur", () => {
+    formulario.addEventListener("input", (evento) => {
+      const campo = evento.target;
+      if ((campo instanceof HTMLInputElement || campo instanceof HTMLSelectElement) && campo.getAttribute("aria-invalid") === "true") {
         validarCampo(campo);
-      });
-
-      campo.addEventListener("input", () => {
-        if (campo.getAttribute("aria-invalid") === "true") {
-          validarCampo(campo);
-        }
-      });
+      }
     });
 
     formulario.addEventListener("submit", (evento) => {
       atualizarTimestamp();
       let primeiroInvalido = null;
+      const camposValidaveis = formulario.querySelectorAll("input:not([type='hidden']), select");
 
       camposValidaveis.forEach((campo) => {
-        const valido = validarCampo(campo);
-        if (!valido && !primeiroInvalido) {
+        if (!validarCampo(campo) && !primeiroInvalido) {
           primeiroInvalido = campo;
         }
       });
@@ -109,9 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const trilhoNiveis = document.getElementById("trilho-niveis");
-  const cartoesNivel = document.querySelectorAll("#trilho-niveis .cartao-nivel");
-  const btnAnterior = document.getElementById("btn-nivel-anterior");
-  const btnProximo = document.getElementById("btn-nivel-proximo");
+  const cartoesNivel = trilhoNiveis ? trilhoNiveis.querySelectorAll(".cartao-nivel") : [];
   const indicadores = document.querySelectorAll(".indicador-carrossel");
   const contadorCarrossel = document.getElementById("contador-carrossel");
   let indiceAtual = 0;
@@ -127,9 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const ativo = indice === indiceAtual;
       cartao.setAttribute("aria-hidden", String(!ativo));
       const botaoCard = cartao.querySelector(".botao-modal");
-      if (botaoCard) {
-        botaoCard.tabIndex = ativo ? 0 : -1;
-      }
+      if (botaoCard) botaoCard.tabIndex = ativo ? 0 : -1;
     });
 
     indicadores.forEach((indicador, indice) => {
@@ -147,87 +124,69 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  if (trilhoNiveis && cartoesNivel.length > 0) {
-    if (btnAnterior) {
-      btnAnterior.addEventListener("click", () => {
-        atualizarCarrossel(indiceAtual - 1);
-      });
-    }
-
-    if (btnProximo) {
-      btnProximo.addEventListener("click", () => {
-        atualizarCarrossel(indiceAtual + 1);
-      });
-    }
-
-    indicadores.forEach((indicador) => {
-      indicador.addEventListener("click", () => {
-        const indice = Number(indicador.getAttribute("data-indice"));
-        if (!Number.isNaN(indice)) {
-          atualizarCarrossel(indice);
-        }
-      });
-    });
-
-    document.addEventListener("keydown", (evento) => {
-      if (evento.key !== "ArrowLeft" && evento.key !== "ArrowRight") return;
-
-      const modalAberto = document.querySelector("dialog.modal-nivel[open]");
-      if (modalAberto) return;
-
-      const elementoFocado = document.activeElement;
-      const tagFocada = elementoFocado ? elementoFocado.tagName : "";
-      if (tagFocada === "INPUT" || tagFocada === "TEXTAREA" || tagFocada === "SELECT") {
-        return;
-      }
-
-      evento.preventDefault();
-      if (evento.key === "ArrowLeft") {
-        atualizarCarrossel(indiceAtual - 1);
-      } else {
-        atualizarCarrossel(indiceAtual + 1);
-      }
-    });
-  }
-
   let ultimoBotaoModal = null;
-  const botoesAbrirModal = document.querySelectorAll("[data-modal]");
 
-  botoesAbrirModal.forEach((botao) => {
-    botao.addEventListener("click", () => {
-      const idModal = botao.getAttribute("data-modal");
-      const modal = document.getElementById(idModal);
+  document.addEventListener("click", (evento) => {
+    const alvo = evento.target;
+    if (!(alvo instanceof Element)) return;
+
+    if (alvo.id === "btn-hamburguer" && btnHamburguer && listaMenu) {
+      const aberto = listaMenu.classList.toggle("aberto");
+      btnHamburguer.setAttribute("aria-expanded", String(aberto));
+      return;
+    }
+
+    if (alvo.id === "modo-escuro") {
+      document.body.classList.toggle("dark-mode");
+      return;
+    }
+
+    if (alvo.id === "btn-nivel-anterior") {
+      atualizarCarrossel(indiceAtual - 1);
+      return;
+    }
+
+    if (alvo.id === "btn-nivel-proximo") {
+      atualizarCarrossel(indiceAtual + 1);
+      return;
+    }
+
+    const indicador = alvo.closest(".indicador-carrossel");
+    if (indicador) {
+      const indice = Number(indicador.getAttribute("data-indice"));
+      if (!Number.isNaN(indice)) atualizarCarrossel(indice);
+      return;
+    }
+
+    const botaoModal = alvo.closest("[data-modal]");
+    if (botaoModal) {
+      const idModal = botaoModal.getAttribute("data-modal");
+      const modal = idModal ? document.getElementById(idModal) : null;
       if (modal && typeof modal.showModal === "function") {
-        ultimoBotaoModal = botao;
+        ultimoBotaoModal = botaoModal;
         modal.showModal();
       }
-    });
-  });
-
-  const modais = document.querySelectorAll("dialog.modal-nivel");
-
-  modais.forEach((modal) => {
-    const botaoFechar = modal.querySelector("[data-fechar-modal]");
-
-    if (botaoFechar) {
-      botaoFechar.addEventListener("click", () => {
-        modal.close();
-      });
+      return;
     }
 
-    modal.addEventListener("click", (evento) => {
-      const retaguarda = modal.getBoundingClientRect();
-      const clicouFora =
-        evento.clientX < retaguarda.left ||
-        evento.clientX > retaguarda.right ||
-        evento.clientY < retaguarda.top ||
-        evento.clientY > retaguarda.bottom;
+    if (alvo.closest("[data-fechar-modal]")) {
+      const modal = alvo.closest("dialog.modal-nivel");
+      if (modal) modal.close();
+      return;
+    }
 
-      if (clicouFora) {
-        modal.close();
-      }
-    });
+    if (alvo.matches("dialog.modal-nivel[open]")) {
+      const rect = alvo.getBoundingClientRect();
+      const fora =
+        evento.clientX < rect.left ||
+        evento.clientX > rect.right ||
+        evento.clientY < rect.top ||
+        evento.clientY > rect.bottom;
+      if (fora) alvo.close();
+    }
+  });
 
+  document.querySelectorAll("dialog.modal-nivel").forEach((modal) => {
     modal.addEventListener("close", () => {
       if (ultimoBotaoModal && typeof ultimoBotaoModal.focus === "function") {
         ultimoBotaoModal.focus();
@@ -236,11 +195,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const resumoContainer = document.getElementById("resumo-associacao");
+  if (trilhoNiveis && cartoesNivel.length > 0) {
+    document.addEventListener("keydown", (evento) => {
+      if (evento.key !== "ArrowLeft" && evento.key !== "ArrowRight") return;
+      if (document.querySelector("dialog.modal-nivel[open]")) return;
 
+      const tagFocada = document.activeElement ? document.activeElement.tagName : "";
+      if (tagFocada === "INPUT" || tagFocada === "TEXTAREA" || tagFocada === "SELECT") return;
+
+      evento.preventDefault();
+      atualizarCarrossel(evento.key === "ArrowLeft" ? indiceAtual - 1 : indiceAtual + 1);
+    });
+  }
+
+  const resumoContainer = document.getElementById("resumo-associacao");
   if (resumoContainer) {
     const parametros = new URLSearchParams(window.location.search);
-
     const nome = parametros.get("nome")?.trim() || "";
     const sobrenome = parametros.get("sobrenome")?.trim() || "";
     const nomeCompleto = `${nome} ${sobrenome}`.trim() || "Não informado";
@@ -257,9 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const definirTexto = (idElemento, valorPadrao) => {
       const elemento = document.getElementById(idElemento);
-      if (elemento) {
-        elemento.textContent = valorPadrao;
-      }
+      if (elemento) elemento.textContent = valorPadrao;
     };
 
     definirTexto("resumo-nome", nomeCompleto);
@@ -272,7 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const timestampBruto = parametros.get("timestamp");
     let dataFormatada = "Não informada";
-
     if (timestampBruto) {
       const dataObj = new Date(timestampBruto);
       if (!Number.isNaN(dataObj.getTime())) {
@@ -282,14 +249,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     }
-
     definirTexto("resumo-timestamp", dataFormatada);
   }
 
   requestAnimationFrame(() => {
     atualizarTimestamp();
-    if (trilhoNiveis && cartoesNivel.length > 0) {
-      atualizarCarrossel(0);
-    }
+    if (trilhoNiveis && cartoesNivel.length > 0) atualizarCarrossel(0);
   });
 });

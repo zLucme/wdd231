@@ -40,7 +40,7 @@ body.dark-mode {
 }
 
 body {
-  font: 1rem/1.6 "Roboto", Arial, sans-serif;
+  font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--texto);
   background: var(--fundo);
 }
@@ -451,6 +451,10 @@ dialog {
   margin: auto;
   max-width: 520px;
   width: calc(100% - 2rem);
+}
+
+dialog:not([open]) {
+  content-visibility: auto;
 }
 
 dialog::backdrop {
