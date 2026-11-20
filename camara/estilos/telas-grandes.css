@@ -4,13 +4,12 @@
   }
 
   #menu-navegacao {
-    border-top: 1px solid var(--sombra-media);
+    border-top: 1px solid var(--sombra);
     padding-top: 0.6rem;
   }
 
   #lista-menu {
     display: flex;
-    flex-direction: row;
     gap: 0.5rem;
   }
 
@@ -28,25 +27,26 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
 
-  #membros-container.list .cartao-membro {
+  #membros-container.list .cartao-membro,
+  #membros-container.list .cartao-corpo {
     display: grid;
-    grid-template-columns: 280px 1fr;
     align-items: center;
+  }
+
+  #membros-container.list .cartao-membro {
+    grid-template-columns: 280px 1fr;
   }
 
   #membros-container.list .cartao-corpo {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    align-items: center;
   }
 
-  .acoes-confirmacao {
+  .acoes-confirmacao,
+  footer {
     flex-direction: row;
-    align-items: center;
   }
 
   footer {
-    flex-direction: row;
     justify-content: space-between;
     text-align: left;
     padding: 2rem max(2rem, calc((100% - 1200px) / 2));
@@ -61,8 +61,8 @@
   #menu-navegacao {
     order: 2;
     width: auto;
-    border-top: none;
-    padding-top: 0;
+    border: 0;
+    padding: 0;
   }
 
   .controles-cabecalho {
