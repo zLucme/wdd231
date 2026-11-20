@@ -20,10 +20,6 @@
     padding: 0.5rem 0.8rem;
   }
 
-  .imagem-heroi {
-    height: 420px;
-  }
-
   .conteudo-principal-grid {
     grid-template-columns: 1.5fr 1fr;
   }
@@ -41,6 +37,11 @@
   #membros-container.list .cartao-corpo {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    align-items: center;
+  }
+
+  .acoes-confirmacao {
+    flex-direction: row;
     align-items: center;
   }
 

@@ -20,13 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const botaoCta = document.querySelector(".botao-cta");
-  if (botaoCta) {
-    botaoCta.addEventListener("click", (e) => {
-      e.preventDefault();
-    });
-  }
-
   const apiKey = "7389903b1bece2f22732550305d5e108";
   const lat = "-22.4431";
   const lon = -47.3114;

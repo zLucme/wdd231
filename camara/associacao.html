@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Associe-se à Câmara | Câmara de Comércio de Monte Mor</title>
+  <meta name="description" content="Faça parte da Câmara de Comércio de Monte Mor. Preencha o formulário de associação e conheça os benefícios dos planos NP, Bronze, Prata e Ouro.">
+  <meta name="author" content="Lucas Mendes de Araújo">
+
+  <link rel="icon" href="imagens/camara.ico" type="image/x-icon">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <meta property="og:title" content="Associe-se à Câmara | Câmara de Comércio de Monte Mor">
+  <meta property="og:description" content="Faça parte da Câmara de Comércio de Monte Mor. Preencha o formulário de associação e impulsione o seu negócio local.">
+  <meta property="og:image" content="https://zlucme.github.io/wdd231/camara/imagens/camara-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://zlucme.github.io/wdd231/camara/associacao.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Câmara de Comércio de Monte Mor">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Associe-se à Câmara | Câmara de Comércio de Monte Mor">
+  <meta name="twitter:description" content="Faça parte da Câmara de Comércio de Monte Mor. Preencha o formulário de associação e impulsione o seu negócio local.">
+  <meta name="twitter:image" content="https://zlucme.github.io/wdd231/camara/imagens/camara-og.jpg">
+
+  <link rel="stylesheet" href="estilos/normalize.css">
+  <link rel="stylesheet" href="estilos/telas-pequenas.css">
+  <link rel="stylesheet" href="estilos/telas-grandes.css">
+
+  <script src="scripts/associacao.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="marca">
+        <img src="imagens/camara.jpg" alt="Logótipo da Câmara de Comércio de Monte Mor" class="logo-camara" width="50" height="50">
+        <div class="marca-texto">
+          <span class="nome-camara">Monte Mor</span>
+          <span class="subtitulo-camara">Câmara de Comércio</span>
+        </div>
+      </div>
+
+      <div class="controles-cabecalho">
+        <button id="modo-escuro" aria-label="Alternar tema claro e escuro">&#9790;</button>
+        <button id="btn-hamburguer" aria-label="Abrir menu de navegação">&#9776;</button>
+      </div>
+
+      <nav id="menu-navegacao" aria-label="Navegação principal">
+        <ul id="lista-menu">
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="diretorio.html">Diretório</a></li>
+          <li><a href="associacao.html" class="active" aria-current="page">Associe-se</a></li>
+          <li><a role="link" title="Em breve" aria-disabled="true">Sobre</a></li>
+          <li><a role="link" title="Em breve" aria-disabled="true">Eventos</a></li>
+          <li><a role="link" title="Em breve" aria-disabled="true">Podcast</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Associe-se à Câmara</h1>
+    <p class="intro">Fortaleça sua empresa, amplie sua rede de contatos e contribua para o desenvolvimento econômico de Monte Mor.</p>
+
+    <section class="painel-secao" aria-labelledby="titulo-niveis">
+      <h2 id="titulo-niveis">Níveis de Associação</h2>
+      <p class="slogan">Navegue pelos planos usando os botões abaixo ou as setas esquerda e direita do teclado.</p>
+
+      <div
+        id="carrossel-niveis"
+        class="carrossel-niveis"
+        role="region"
+        aria-roledescription="carrossel"
+        aria-label="Planos de associação da Câmara"
+        tabindex="0">
+        <div class="carrossel-janela">
+          <div id="trilho-niveis" class="grade-niveis" data-slide="0" aria-live="polite">
+            <article
+              class="cartao-membro cartao-nivel"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 de 4: Associação NP">
+              <div class="cartao-nivel-topo">
+                <h3>Associação NP</h3>
+                <span class="nivel nivel-np">Sem Fins Lucrativos</span>
+              </div>
+              <p class="preco-plano">Gratuito para entidades certificadas</p>
+              <p class="slogan">Destinada a instituições filantrópicas, ONGs e associações comunitárias de Monte Mor que buscam integração local.</p>
+              <button type="button" class="botao-modal" data-modal="modal-np" aria-haspopup="dialog">Ver Benefícios NP</button>
+            </article>
+
+            <article
+              class="cartao-membro cartao-nivel"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="2 de 4: Nível Bronze">
+              <div class="cartao-nivel-topo">
+                <h3>Nível Bronze</h3>
+                <span class="nivel nivel-1">Membro Bronze</span>
+              </div>
+              <p class="preco-plano">R$ 90,00 / mês</p>
+              <p class="slogan">Ideal para microempreendedores e pequenos comércios que buscam presença oficial no diretório e networking.</p>
+              <button type="button" class="botao-modal" data-modal="modal-bronze" aria-haspopup="dialog">Ver Benefícios Bronze</button>
+            </article>
+
+            <article
+              class="cartao-membro cartao-nivel"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 de 4: Nível Prata">
+              <div class="cartao-nivel-topo">
+                <h3>Nível Prata</h3>
+                <span class="nivel nivel-2">Nível: Prata</span>
+              </div>
+              <p class="preco-plano">R$ 180,00 / mês</p>
+              <p class="slogan">Para empresas em crescimento que desejam capacitação, descontos em eventos e destaque rotativo na página inicial.</p>
+              <button type="button" class="botao-modal" data-modal="modal-prata" aria-haspopup="dialog">Ver Benefícios Prata</button>
+            </article>
+
+            <article
+              class="cartao-membro cartao-nivel"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="4 de 4: Nível Ouro">
+              <div class="cartao-nivel-topo">
+                <h3>Nível Ouro</h3>
+                <span class="nivel nivel-3">Nível: Ouro</span>
+              </div>
+              <p class="preco-plano">R$ 320,00 / mês</p>
+              <p class="slogan">Visibilidade máxima, patrocínio prioritário em feiras locais, assessoria consultiva e participação em comitês estratégicos.</p>
+              <button type="button" class="botao-modal" data-modal="modal-ouro" aria-haspopup="dialog">Ver Benefícios Ouro</button>
+            </article>
+          </div>
+        </div>
+
+        <div class="carrossel-controles">
+          <button type="button" id="btn-nivel-anterior" class="botao-carrossel" aria-label="Plano anterior">&#10094;</button>
+
+          <div class="carrossel-paginacao">
+            <div class="carrossel-indicadores" role="group" aria-label="Selecionar plano diretamente">
+              <button type="button" class="indicador-carrossel ativo" data-indice="0" aria-label="Plano 1: Associação NP" aria-current="true"></button>
+              <button type="button" class="indicador-carrossel" data-indice="1" aria-label="Plano 2: Nível Bronze"></button>
+              <button type="button" class="indicador-carrossel" data-indice="2" aria-label="Plano 3: Nível Prata"></button>
+              <button type="button" class="indicador-carrossel" data-indice="3" aria-label="Plano 4: Nível Ouro"></button>
+            </div>
+            <span id="contador-carrossel" class="contador-carrossel" aria-live="polite">Plano 1 de 4</span>
+          </div>
+
+          <button type="button" id="btn-nivel-proximo" class="botao-carrossel" aria-label="Próximo plano">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="painel-secao" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Formulário de Solicitação de Associação</h2>
+      <p class="dica-campo">Os campos marcados com <span class="obrigatorio" aria-hidden="true">*</span> são obrigatórios.</p>
+
+      <form id="form-associacao" class="form-associacao" method="get" action="agradecimento.html" novalidate>
+        <div class="campo-grupo">
+          <label for="nome">Primeiro Nome<span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            required
+            autocomplete="given-name"
+            title="Informe o seu primeiro nome"
+            aria-describedby="erro-nome">
+          <span id="erro-nome" class="erro-campo" aria-live="polite"></span>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="sobrenome">Sobrenome<span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="sobrenome"
+            name="sobrenome"
+            required
+            autocomplete="family-name"
+            title="Informe o seu sobrenome"
+            aria-describedby="erro-sobrenome">
+          <span id="erro-sobrenome" class="erro-campo" aria-live="polite"></span>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="cargo">Cargo ou Título na Organização</label>
+          <input
+            type="text"
+            id="cargo"
+            name="cargo"
+            autocomplete="organization-title"
+            pattern="[A-Za-zÀ-ÿ\s\-]{7,}"
+            placeholder="Ex.: Diretor Comercial"
+            title="O cargo deve ter no mínimo 7 caracteres e conter apenas letras, espaços ou hífens"
+            aria-describedby="dica-cargo erro-cargo">
+          <span id="dica-cargo" class="dica-campo">Mínimo de 7 caracteres (apenas letras, espaços e hífens).</span>
+          <span id="erro-cargo" class="erro-campo" aria-live="polite"></span>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="email">E-mail Corporativo<span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="contato@suaempresa.com.br"
+            title="Informe um endereço de e-mail válido"
+            aria-describedby="erro-email">
+          <span id="erro-email" class="erro-campo" aria-live="polite"></span>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="telefone">Telefone Celular<span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input
+            type="tel"
+            id="telefone"
+            name="telefone"
+            required
+            autocomplete="tel"
+            placeholder="(19) 99999-0000"
+            title="Informe um número de telefone celular com DDD"
+            aria-describedby="erro-telefone">
+          <span id="erro-telefone" class="erro-campo" aria-live="polite"></span>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="empresa">Nome da Empresa ou Organização<span class="obrigatorio" aria-hidden="true">*</span></label>
+          <input
+            type="text"
+            id="empresa"
+            name="empresa"
+            required
+            autocomplete="organization"
+            title="Informe o nome da sua empresa ou organização"
+            aria-describedby="erro-empresa">
+          <span id="erro-empresa" class="erro-campo" aria-live="polite"></span>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="nivel">Nível de Associação<span class="obrigatorio" aria-hidden="true">*</span></label>
+          <select
+            id="nivel"
+            name="nivel"
+            required
+            title="Selecione o nível de associação desejado"
+            aria-describedby="erro-nivel">
+            <option value="" disabled selected>Selecione um plano...</option>
+            <option value="NP (Sem Fins Lucrativos)">NP — Organização Sem Fins Lucrativos (Isento)</option>
+            <option value="Bronze">Nível Bronze — R$ 90/mês</option>
+            <option value="Prata">Nível Prata — R$ 180/mês</option>
+            <option value="Ouro">Nível Ouro — R$ 320/mês</option>
+          </select>
+          <span id="erro-nivel" class="erro-campo" aria-live="polite"></span>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="descricao">Descrição da Empresa ou Organização</label>
+          <textarea
+            id="descricao"
+            name="descricao"
+            rows="4"
+            placeholder="Descreva os principais produtos, serviços e área de atuação..."
+            title="Descreva brevemente sua empresa ou organização"></textarea>
+        </div>
+
+        <input type="hidden" id="timestamp" name="timestamp">
+
+        <button type="submit" class="botao-enviar">Enviar Solicitação de Associação</button>
+      </form>
+    </section>
+
+    <dialog id="modal-np" class="modal-nivel" aria-labelledby="titulo-modal-np">
+      <div class="modal-cabecalho">
+        <h3 id="titulo-modal-np">Plano NP — Sem Fins Lucrativos</h3>
+        <span class="nivel nivel-np">Isento</span>
+      </div>
+      <div class="modal-corpo">
+        <p class="preco-plano">Investimento: Gratuito para entidades certificadas</p>
+        <p>Benefícios incluídos nesta modalidade:</p>
+        <ul>
+          <li>Listagem completa no Diretório Oficial da Câmara de Comércio.</li>
+          <li>Divulgação de campanhas sociais e comunitárias no boletim mensal.</li>
+          <li>Acesso gratuito às palestras e encontros abertos de networking.</li>
+          <li>Apoio institucional para parcerias com empresas locais.</li>
+        </ul>
+        <button type="button" class="botao-fechar-modal" data-fechar-modal>Fechar</button>
+      </div>
+    </dialog>
+
+    <dialog id="modal-bronze" class="modal-nivel" aria-labelledby="titulo-modal-bronze">
+      <div class="modal-cabecalho">
+        <h3 id="titulo-modal-bronze">Plano Nível Bronze</h3>
+        <span class="nivel nivel-1">Bronze</span>
+      </div>
+      <div class="modal-corpo">
+        <p class="preco-plano">Investimento: R$ 90,00 / mês</p>
+        <p>Benefícios incluídos nesta modalidade:</p>
+        <ul>
+          <li>Perfil empresarial completo no Diretório de Membros com link para o site.</li>
+          <li>Acesso aos eventos mensais de networking empresarial em Monte Mor.</li>
+          <li>15% de desconto em cursos, workshops e treinamentos da Câmara.</li>
+          <li>Certificado digital e selo oficial de Membro Associado.</li>
+        </ul>
+        <button type="button" class="botao-fechar-modal" data-fechar-modal>Fechar</button>
+      </div>
+    </dialog>
+
+    <dialog id="modal-prata" class="modal-nivel" aria-labelledby="titulo-modal-prata">
+      <div class="modal-cabecalho">
+        <h3 id="titulo-modal-prata">Plano Nível Prata</h3>
+        <span class="nivel nivel-2">Prata</span>
+      </div>
+      <div class="modal-corpo">
+        <p class="preco-plano">Investimento: R$ 180,00 / mês</p>
+        <p>Benefícios incluídos nesta modalidade:</p>
+        <ul>
+          <li>Todos os benefícios do Nível Bronze.</li>
+          <li>Exibição rotativa na vitrine de <strong>Empresas em Destaque</strong> na Página Inicial.</li>
+          <li>30% de desconto em estandes da Feira de Empreendedorismo de Monte Mor.</li>
+          <li>2 vagas gratuitas por trimestre em treinamentos de gestão e vendas.</li>
+          <li>Publicação de 1 nota empresarial por semestre nas redes da Câmara.</li>
+        </ul>
+        <button type="button" class="botao-fechar-modal" data-fechar-modal>Fechar</button>
+      </div>
+    </dialog>
+
+    <dialog id="modal-ouro" class="modal-nivel" aria-labelledby="titulo-modal-ouro">
+      <div class="modal-cabecalho">
+        <h3 id="titulo-modal-ouro">Plano Nível Ouro</h3>
+        <span class="nivel nivel-3">Ouro</span>
+      </div>
+      <div class="modal-corpo">
+        <p class="preco-plano">Investimento: R$ 320,00 / mês</p>
+        <p>Benefícios incluídos nesta modalidade:</p>
+        <ul>
+          <li>Todos os benefícios dos níveis Bronze e Prata.</li>
+          <li>Destaque prioritário na Página Inicial e no topo de eventos patrocinados.</li>
+          <li>50% de desconto em estandes e espaço de palestra na Feira de Empreendedorismo.</li>
+          <li>Participação em reuniões executivas e mesas consultivas com lideranças locais.</li>
+          <li>Assessoria jurídica e contábil consultiva (2 atendimentos mensais).</li>
+        </ul>
+        <button type="button" class="botao-fechar-modal" data-fechar-modal>Fechar</button>
+      </div>
+    </dialog>
+  </main>
+
+  <footer>
+    <div class="footer-bloco footer-contato">
+      <h2>Câmara de Comércio de Monte Mor</h2>
+      <p>Rua Salomão Haddad Baruque, 100</p>
+      <p>Monte Mor, SP - CEP 13190-000</p>
+      <p>contato@camaramontemor.org.br</p>
+      <p>(19) 3879-1000</p>
+    </div>
+
+    <div class="footer-bloco footer-redes">
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="Acessar nosso canal no YouTube">
+        <svg viewBox="0 0 24 24" class="icone-rede" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Acessar nosso perfil no X">
+        <svg viewBox="0 0 24 24" class="icone-rede" aria-hidden="true"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Acessar nosso perfil no LinkedIn">
+        <svg viewBox="0 0 24 24" class="icone-rede" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c-.95 0-1.72-.77-1.72-1.72s.77-1.72 1.72-1.72 1.72.77 1.72 1.72-.77 1.72-1.72 1.72m1.4 9.74v-8.37H5.06v8.37z"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bloco footer-desenvolvimento">
+      <p>Projeto de Aula WDD 231</p>
+      <p>Lucas Mendes de Araújo &copy;</p>
+      <p><span id="ano-copyright"></span> Monte Mor Câmara de Comércio</p>
+      <p>Última Modificação: <span id="ultima-modificacao"></span></p>
+    </div>
+  </footer>
+</body>
+</html>
